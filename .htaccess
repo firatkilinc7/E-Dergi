@@ -1,0 +1,12 @@
+Options +FollowSymlinks -Indexes
+RewriteEngine on
+
+DirectoryIndex index.php
+RewriteCond $1 !^(index\.php|resources|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
+<FilesMatch ".(ttf|otf|woff|woff2|php|js|css)$">
+    Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
