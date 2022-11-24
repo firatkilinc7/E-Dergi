@@ -1,0 +1,231 @@
+/* ------------------------------------------------
+  Project:   Stacht - Data Science & Analytics Bootstrap 5 Template
+  Author:    ThemeHt
+------------------------------------------------ */
+
+/* ------------------------
+    Table of Contents
+
+  1. General
+  2. Typography
+  3. Helper class
+  4. Text color
+  5. Background color
+  6. Banner
+  7. Background Position & Size
+  8. Shape
+  9. Subtitle Effect
+  10. Countdown
+  11. Terms and Conditions
+  12. Privacy Policy
+  13. Contact
+  14. Video
+  15. Side Background
+  16. List Icon
+  17. Icon Size
+  18. Shop Page
+  19. How It Work
+  20. Extra
+------------------------*/
+
+/* ------------------------
+    General
+------------------------*/
+
+body { font-family: 'Be Vietnam Pro', sans-serif; font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.5; color: #42454b; overflow-x: hidden; }
+.page-wrapper { overflow-x: hidden; }
+
+/* ------------------------
+    Typography
+------------------------*/
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-weight: normal; margin-top: 0px; margin-bottom: 0px; color: #102e46; font-family: 'Outfit', sans-serif; }
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: inherit; }
+h1, .h1 { font-size: 80px; font-style: normal; line-height: 90px; font-weight: 300; color: #122f40; }
+h2, .h2 { font-size: 50px; font-style: normal; line-height: 60px; font-weight: 300; margin-bottom: 10px; position: relative; color: #122f40; }
+h3, .h3 { font-size: 32px; font-style: normal; line-height: 40px; font-weight: 500; }
+h4, .h4 { font-size: 26px; font-style: normal; margin-bottom: 10px; font-weight: 500; line-height: 36px; }
+h5, .h5 { font-size: 22px; font-style: normal; margin-bottom: 10px; font-weight: 500; line-height: 32px; }
+h6, .h6 { font-size: 18px; font-style: normal; line-height: 24px; margin-bottom: 10px; }
+ul { margin: 0px; padding: 0px; }
+
+/* ------------------------
+    Helper class
+------------------------*/
+p { line-height: 1.7; }
+.lead { font-weight: normal; font-size: 17px; line-height: 30px; }
+.z-index-0 { z-index: 0; position: relative; }
+.z-index-1 { z-index: 9; position: relative; }
+.border-primary { border-color: #0049d0 !important; }
+a.text-primary:focus, a.text-primary:hover { color: #102e46 !important; }
+.border-light { border-color: #ebebeb !important; }
+section { padding: 80px 0; }
+.font-w-3 { font-weight: 300; }
+.font-w-4 { font-weight: 400; }
+.font-w-5 { font-weight: 500; }
+.font-w-6 { font-weight: 600; }
+.font-w-7 { font-weight: 700; }
+.font-w-8 { font-weight: 800; }
+.font-w-9 { font-weight: 900; }
+
+/* ------------------------
+    Text color
+------------------------*/
+.text-primary { color: #0049d0 !important; }
+.text-dark { color: #102e46 !important; }
+.text-grey { color: #42454b; }
+.text-rgba { color: rgba(255, 255, 255, 0.7); }
+
+/* ------------------------
+    Background color
+------------------------*/
+.bg-dark { background-color: #16171c !important; }
+.bg-light { background-color: #fff6f6 !important; }
+.bg-primary { background-color: #0049d0 !important; }
+
+/* ------------------------
+    Banner
+------------------------*/
+.fullscreen-banner { position: relative; min-height: 700px; }
+[data-bg-img] { background-size: cover; background-position: center center; background-repeat: no-repeat; }
+.align-center { position: absolute; top: 50%; width: 100%; z-index: 9; }
+.fullscreen-banner .owl-carousel, .fullscreen-banner .owl-stage-outer, .fullscreen-banner .owl-stage, .fullscreen-banner .owl-item, .fullscreen-banner .item { height: 100%; }
+.banner-1 { background-color: #16171c; background-image: linear-gradient(315deg, #16171c 0%, #0049d0 74%); }
+.banner-2 { padding-bottom: 10rem }
+
+/* -------------------------------
+   Background Position & Size
+-------------------------------*/
+.bg-cover { background-size: cover; }
+.bg-contain { background-size: contain; }
+.bg-pos-l { background-position: left; }
+.bg-pos-r { background-position: right; }
+.bg-pos-rt { background-position: right top; }
+.bg-pos-lt { background-position: left top; }
+.bg-pos-rb { background-position: right bottom; }
+.bg-pos-lb { background-position: left bottom; }
+.bg-repeat { background-repeat: repeat; }
+
+/* ------------------------
+Shape
+------------------------*/
+.shape-1:before { content: ""; background: #fff6f6; height: 100%; width: 75%; position: absolute; top: 0; left: 0; z-index: -1; border-radius: .25rem }
+.shape-1.right:before { left: inherit; right: 0 }
+.skew-shape:before { content: ""; background: #fff6f6; position: absolute; bottom: -40%; z-index: -1; width: 120%; height: 110%; transform: rotate(-24deg); }
+.shape-both:before { content: ""; background: #fff6f6; height: 100%; width: 20%; position: absolute; top: 0; left: 0; z-index: -1; border-radius: .25rem }
+.shape-both:after { content: ""; background: #fff6f6; height: 100%; width: 20%; position: absolute; top: 0; right: 0; z-index: -1; border-radius: .25rem }
+.curve-shape { position: absolute; bottom: 0; width: 100%; left: 0; right: 0; z-index: -1 }
+
+/* ------------------------
+Subtitle Effect
+------------------------*/
+.subtitle-effect span { display: inline-block; animation: headShake 1.3s infinite running; }
+
+/* ------------------------
+    Countdown
+------------------------*/
+.countdown { width: 100%; }
+.countdown > li { list-style-type: none; text-align: center; }
+.countdown > li span { font-family: 'Outfit', sans-serif; font-size: 60px; font-weight: 500; display: inline-block; color: #0049d0; }
+.countdown > li p { font-size: 20px; font-weight: 500; margin-top: 15px; display: block; margin-bottom: 0; color: #102e46; }
+
+/* ------------------------
+    Terms and Conditions
+------------------------*/
+.terms-and-conditions p { margin-bottom: 25px; }
+.terms-and-conditions ul.list { margin-bottom: 20px; display: block; }
+.terms-and-conditions ul.list li i { padding-right: 12px; font-size: 15px; }
+
+/* ------------------------
+    Privacy Policy
+------------------------*/
+.privacy-policy p { margin-bottom: 25px; }
+.privacy-policy ul.list { margin-bottom: 20px; display: block; }
+.privacy-policy ul.list li i { padding-right: 12px; font-size: 15px; }
+
+/* ------------------------
+    Contact
+------------------------*/
+.contact-media i { background: rgba(255, 255, 255, 0.1); border-radius: .25rem; height: 60px; width: 60px; line-height: 60px; text-align: center; font-size: 30px; color: #ffffff; }
+.contact-media a, .contact-media span { color: rgba(255, 255, 255, 0.8); }
+.contact-media a:hover { color: #ffffff; text-decoration: underline !important; }
+.contact-media.style-2 i { background: #0049d0; }
+.contact-media.style-2 a, .contact-media.style-2 span { color: #102e46; }
+.contact-media.style-2 a:hover { color: #0049d0; text-decoration: underline !important; }
+label { font-size: 14px; color: #102e46 }
+.form-control { font-size: 14px; height: 50px; color: #42454b; border: 1px solid #ebebeb; }
+textarea.form-control { height: 120px; }
+.form-control:focus { box-shadow: none; border-color: #0049d0; }
+select.form-control { height: 50px !important; }
+iframe { width: 100%; border: none; pointer-events: auto; }
+.form-control::-webkit-input-placeholder { color: #42454b; }
+.form-control::-moz-placeholder { color: #42454b; }
+.form-control:-ms-input-placeholder { color: #42454b; }
+.form-control:-moz-placeholder { color: #42454b; }
+.success { padding: 1em; margin-bottom: 0.75rem; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); color: #468847; background-color: #dff0d8; border: 1px solid #d6e9c6; width: 100%; font-size: 0.8rem; }
+.error { padding: 1em; margin-bottom: 0.75rem; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); color: #b94a48; background-color: #f2dede; border: 1px solid rgba(185, 74, 72, 0.3); width: 100%; font-size: 0.8rem; }
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill { -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important; -webkit-text-fill-color: #102e46 !important; transition: background-color 5000s ease-in-out 0s; }
+.map { height: 500px; z-index: 999; }
+.map iframe { border: 0px; width: 100%; height: 100%; z-index: 1; -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); -ms-filter: grayscale(100%); -o-filter: grayscale(100%); filter: grayscale(100%); }
+
+/* ------------------------
+    Video
+------------------------*/
+.video-btn { position: relative; display: inline-block; }
+.video-btn-pos { position: absolute; left: 50%; top: 50%; width: auto !important; z-index: 99; }
+.video-btn .play-btn { width: 80px; border-radius: 50%; cursor: pointer; height: 80px; background: #16171c; display: inline-block; text-align: center; line-height: 80px; position: relative; }
+.video-btn .play-btn::after { position: absolute; content: ''; width: 100%; height: 100%; background: #0049d0; left: 0px; top: 0px; transform: scale(.6); transition: .5s ease; border-radius: 50%; opacity: 0; }
+.video-btn .play-btn:hover::after { transform: scale(1); opacity: 1; }
+.video-btn .play-btn i { z-index: 1; font-size: 40px; position: absolute; top: 50%; left: 50%; color: #ffffff; -webkit-transition: .25s; -o-transition: .25s; transition: .2s ease-out !important; transform: translate3d(-50%, -50%, 0); }
+.video-btn .play-btn:hover i { transform: translate3d(-50%, -50%, 0) scale(.75); color: #ffffff }
+
+/* ------------------------
+    List Icon
+------------------------*/
+.list-dot { background: #ffe8e9; border-radius: 100%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; }
+
+/* ------------------------
+    Icon Size
+------------------------*/
+.ic-1x { font-size: 1em; }
+.ic-2x { font-size: 2em; }
+.ic-3x { font-size: 3em; }
+.ic-5x { font-size: 5em; }
+.ic-7x { font-size: 7em; }
+
+/* -------------------------------
+ Shop Page
+-------------------------------*/
+.product-card { border: none; overflow: hidden; }
+.product-link { position: absolute; bottom: 0; opacity: 0; left: 50%; }
+.product-card:hover .product-link { opacity: 1; bottom: 2rem; }
+.product-link button { color: #102e46; font-size: 20px; border: none; padding: 0.50rem 0.75rem; background: #ffffff; display: block; border-radius: .25rem }
+.product-link button:hover { background: #0049d0; color: #ffffff }
+.product-card .card-body { position: relative; background: #ffffff; }
+.product-title a { color: #102e46; font-size: 16px; }
+.product-title a:hover { color: #0049d0; }
+.product-price { color: #102e46; font-weight: 500; }
+.product-list.product-card { padding: 0; }
+.star-rating { color: #FDCC0D }
+.form-check-input:checked { background-color: #0049d0; border-color: #0049d0; }
+input.form-product { -moz-appearance: textfield; height: 40px; border: none; background: #ffffff; text-align: center; width: 50px; border-top: 1px solid #ebebeb; border-bottom: 1px solid #ebebeb; color: #102e46; vertical-align: middle; }
+.btn-product { background: none; color: #102e46; border: 1px solid #ebebeb; height: 40px; width: auto; padding: 0 10px; font-size: 13px; cursor: pointer; }
+.view-filter a.active { color: #0049d0; }
+.view-filter a { color: #102e46; display: inline-block; vertical-align: middle; font-size: 30px; }
+.cart-table thead th { padding: 20px; vertical-align: middle; color: #102e46; font-size: 20px; font-weight: 600; }
+.cart-table td { padding: 10px; color: #102e46; vertical-align: middle; }
+
+/* ------------------------
+    How It Work
+------------------------*/
+.work-process { box-shadow: 4.871px 34.659px 30px 0px rgb(16 46 70 / 5%); padding: 60px 30px; }
+.step-icon { width: 80px; height: 80px; }
+.step-icon { display: inline-block; margin-bottom: 20px; }
+.work-process .step-num { position: absolute; left: -10px; top: -10px; width: 60px; height: 60px; line-height: 70px; background: #0049d0; color: #ffffff; text-align: center; border-radius: 50%; font-size: 18px; font-weight: 700 }
+.work-process:hover .step-num { animation: flash 1.3s infinite running; }
+
+/* ------------------------
+Extra
+------------------------*/
+#canvas-1 { position: absolute; top: 0; left: 0; z-index: -1; }
+.banner-morph { animation: featured-morphing 10s infinite; position: absolute; right: -20%; bottom: -30%; background: rgba(255, 255, 255, 0.03); height: 150%; width: 120%; z-index: -1 }
+.banner-shape { position: absolute; bottom: 0; z-index: -1; transform: rotate(-90deg); left: -45%; width: 100%; }
