@@ -1,0 +1,42 @@
+/* Add here all your CSS customizations */
+.input-form-error{
+    font-size: 12px;
+    color : #ff5b5b;
+    font-style: italic;
+}
+
+td{
+    vertical-align: middle!important;
+}
+th{
+    text-align: center;
+}
+
+.order{
+    text-align: center;
+    width: 50px;
+}
+
+.w100{
+    width: 100px;
+}
+.w200{
+    width: 200px;
+}
+.w300{
+    width: 300px;
+}
+.w50{
+    width: 50px;
+}
+
+.sortable{
+    cursor: move;
+}
+.button-information-container{
+    display: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
