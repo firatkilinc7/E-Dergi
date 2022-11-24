@@ -23,11 +23,21 @@ class Home extends MY_Controller {
 		$viewData->viewFolder   = "home_v";
 		$viewData->frontViewFolder = "front";
 
-		$this->load->view("front/home_v");
+		$this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}", $viewData);
 
 
 	}
+	
+	public function error_page(){
 
+		$viewData = new stdClass();
+		$viewData->viewFolder = "page_404";
+		$viewData->frontViewFolder = "front";
+
+
+		$this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}", $viewData);
+
+	}
 	
 
 
