@@ -30,7 +30,14 @@ class Userop extends CI_Controller {
         $this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+	
+	public function logout(){
 
+		$this->load->library('session');
+		$this->session->unset_userdata("user");
+		redirect(base_url("login"));
+
+	}
 
 
     public function do_login(){
