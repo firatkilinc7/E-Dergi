@@ -25,4 +25,6 @@ if($alert){
         </script>
 
     <?php }
+	
+	$this->session->unset_userdata("alert");
 } ?>
