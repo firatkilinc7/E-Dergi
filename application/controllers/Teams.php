@@ -19,6 +19,7 @@ class Teams extends CI_Controller
 
     }
 
+
     public function index(){
 
         $viewData = new stdClass();
@@ -35,6 +36,7 @@ class Teams extends CI_Controller
         $this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
     }
 	
+	
 	public function new_form(){
 
         $viewData = new stdClass();
@@ -47,6 +49,7 @@ class Teams extends CI_Controller
         $this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+	
 	
 	public function save(){
 
@@ -151,6 +154,48 @@ class Teams extends CI_Controller
         }
 
     }
+	
+
+	public function delete($id){
+
+       $fileName = $this->our_teams_model->get(
+			array(
+				"id"    => $id
+			)
+		);
+
+       $delete = $this->our_teams_model->delete(
+			array(
+				"id"    => $id
+			)
+		);
+
+        
+		if($delete){
+
+			unlink("uploads/admin/{$this->viewFolder}/900x600/$fileName->img_url");
+
+
+			$alert = array(
+				"title" => "İşlem Başarılı",
+				"text" => "Kayıt başarılı bir şekilde silindi",
+				"type"  => "success"
+			);
+
+		} else {
+
+			$alert = array(
+				"title" => "İşlem Başarılı",
+				"text" => "Kayıt silme sırasında bir problem oluştu",
+				"type"  => "error"
+			);
+		}
+
+		$this->session->set_flashdata("alert", $alert);
+		redirect(base_url("teams"));
+
+	}
+
 
 
 }
