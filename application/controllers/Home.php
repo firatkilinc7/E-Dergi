@@ -18,11 +18,20 @@ class Home extends MY_Controller {
 	public function index(){
 
 		$viewData = new stdClass();
-				
-
-		$viewData->viewFolder   = "home_v";
+		
+		$this->load->model("our_teams_model");
+		
+		$our_teams = $this->our_teams_model->get_all(
+			array(
+				"isActive"  => 1,
+				"isTrend"   =>1
+			), "rank ASC"
+		);
+		
+		$viewData->viewFolder      = "home_v";
 		$viewData->frontViewFolder = "front";
-
+		$viewData->our_teams       = $our_teams;
+		
 		$this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}", $viewData);
 
 

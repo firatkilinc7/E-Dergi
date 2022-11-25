@@ -18,4 +18,4 @@ $route["logout"]    = "userop/logout";
 $route["teams"]     = "teams/index";
 $route["teams/add"] = "teams/new_form";
 $route["teams/save"] = "teams/save";
-
+$route["teams/delete/(:any)"]    = "teams/delete/$1";
