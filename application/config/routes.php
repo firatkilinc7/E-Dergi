@@ -7,4 +7,5 @@ $route['404_override']       = 'home/error_page';
 $route['default_controller'] = 'home';
 
 $route["login"] = "userop/login";
+$route["teams"] = "teams/index";
 
