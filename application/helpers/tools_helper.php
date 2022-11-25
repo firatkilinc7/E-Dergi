@@ -22,6 +22,20 @@
 		}
 	}
 
+	//fotoğrafları getir, fotoğraf yoksa error (default) fotoğraf
+	function get_picture($path = "", $picture = "", $resolution = "50x50"){
 
+		if($picture != ""){
+
+			if(file_exists(FCPATH . "uploads/$path/$resolution/$picture")){
+				$picture = base_url("uploads/$path/$resolution/$picture");
+			} else {
+				$picture = base_url("assets/admin/images/default_image.png");
+			}
+		} else {
+			$picture = base_url("assets/admin/images/default_image.png");
+		}
+		return $picture;
+	}
 
 ?>
