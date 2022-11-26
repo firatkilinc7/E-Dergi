@@ -247,7 +247,7 @@ class Teams extends CI_Controller
 
                 $file_name = convertToSEO(pathinfo($_FILES["img_url"]["name"], PATHINFO_FILENAME)) . "." . pathinfo($_FILES["img_url"]["name"], PATHINFO_EXTENSION);
 
-                $image_900x600 = upload_picture($_FILES["img_url"]["tmp_name"], "uploads/back/$this->viewFolder",900,600, $file_name);
+                $image_900x600 = upload_picture($_FILES["img_url"]["tmp_name"], "uploads/admin/$this->viewFolder",900,600, $file_name);
 
 
                 if($image_900x600){
@@ -265,7 +265,7 @@ class Teams extends CI_Controller
 
                     $alert = array(
                         "title" => "İşlem Başarısız",
-                        "text" => "Görsel yüklenirken bir problem oluştus",
+                        "text" => "Görsel yüklenirken bir problem oluştu",
                         "type" => "error"
                     );
 
