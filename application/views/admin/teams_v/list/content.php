@@ -16,7 +16,6 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-striped mb-none">
                    <thead>
-                    <th class="order"><i class="fa fa-reorder"></i></th>
                     <th class="w50">İd</th>
                     <th>Ad-Soyad</th>
 					<th>Rol</th>
@@ -24,12 +23,11 @@
                     <th>Görsel</th>
                     <th>İşlemler</th>
                 </thead>
-                <tbody class="sortable" data-url="<?php echo base_url("teams/rankSetter"); ?>">
+                <tbody class="sortable">
 
                     <?php foreach($teams as $team) { ?>
 
                         <tr id="ord-<?php echo $team->id; ?>">
-                            <td class="order"><i class="fa fa-reorder"></i></td>
                             <td class="w50 text-center">#<?php echo $team->id; ?></td>
                             <td><?php echo $team->name; ?></td>
                             <td><?php echo $team->role; ?></td>
