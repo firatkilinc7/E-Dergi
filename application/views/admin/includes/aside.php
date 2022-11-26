@@ -20,7 +20,11 @@
 					</li>
 					
 					<li><a href="<?php echo base_url('teams'); ?>"><i class="fa fa-male" aria-hidden="true"></i>Ekibimiz</a></li>
+					
+					<li><a href="<?php echo base_url('blogs'); ?>"><i class="fa fa-file" aria-hidden="true"></i>Bloglar</a></li>
+					
 					<li><a href="<?php echo base_url('settings'); ?>"><i class="fa fa-gears" aria-hidden="true"></i>Site Ayarları</a></li>
+					
 				
 				</ul>
 			</nav>

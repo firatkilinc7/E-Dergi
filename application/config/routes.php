@@ -22,3 +22,7 @@ $route['default_controller'] = 'home';
 	$route["teams/save"] = "teams/save";
 	$route["teams/delete/(:any)"]    = "teams/delete/$1";
 	$route["teams/update_form/(:any)"]    = "teams/update_form/$1";
+	
+	
+	//Blog Bölümü
+	$route["blogs"]    = "blogs/index";
