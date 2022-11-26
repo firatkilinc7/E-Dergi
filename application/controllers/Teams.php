@@ -94,12 +94,12 @@ class Teams extends CI_Controller
 
                 $insert = $this->our_teams_model->add(
                     array(
-                        "name"         => $this->input->post("name"),
-                        "role"   => $this->input->post("role"),
-                        "img_url"       => $file_name,
-                        "rank"          => $this->input->post("rank"),
-                        "isActive"      => 1,
-                        "createdAt"     => date("Y-m-d H:i:s")
+                        "name"      => $this->input->post("name"),
+                        "role"   	=> $this->input->post("role"),
+                        "img_url"   => $file_name,
+                        "rank"      => $this->input->post("rank"),
+                        "isActive"  => 1,
+                        "createdAt" => date("Y-m-d H:i:s")
                     )
                 );
 
@@ -196,6 +196,7 @@ class Teams extends CI_Controller
 
 	}
 
+	
 	public function update_form($id){
 
         $viewData = new stdClass();
@@ -214,6 +215,135 @@ class Teams extends CI_Controller
         $this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+	
+	
+	public function update($id){
+
+        $this->load->library("form_validation");
+
+        $oldFileName = $this->our_teams_model->get(
+            array(
+                "id"    => $id
+            )
+        );
+
+        $this->form_validation->set_rules("name", "Ad Soyad", "required|trim");
+        $this->form_validation->set_rules("role", "Rol", "required|trim");
+        $this->form_validation->set_rules("rank", "Rank", "required|numeric|trim");
+
+        $this->form_validation->set_message(
+            array(
+                "required"  => "<b>{field}</b> alanı doldurulmalıdır.",
+                "numeric"  => "<b>{field}</b> alanı sayısal değer içermelidir."
+            )
+        );
+
+        $validate = $this->form_validation->run();
+
+        if($validate){
+
+
+            if($_FILES["img_url"]["name"] !== "") {
+
+                $file_name = convertToSEO(pathinfo($_FILES["img_url"]["name"], PATHINFO_FILENAME)) . "." . pathinfo($_FILES["img_url"]["name"], PATHINFO_EXTENSION);
+
+                $image_900x600 = upload_picture($_FILES["img_url"]["tmp_name"], "uploads/back/$this->viewFolder",900,600, $file_name);
+
+
+                if($image_900x600){
+
+                    unlink("uploads/back/{$this->viewFolder}/900x600/$oldFileName->img_url");
+
+                    $data = array(
+						 "name"     => $this->input->post("name"),
+						 "role"     => $this->input->post("role"),
+						 "img_url"  => $file_name,
+						 "rank"     => $this->input->post("rank"),
+					);
+
+                } else {
+
+                    $alert = array(
+                        "title" => "İşlem Başarısız",
+                        "text" => "Görsel yüklenirken bir problem oluştus",
+                        "type" => "error"
+                    );
+
+                    $this->session->set_flashdata("alert", $alert);
+
+                    redirect(base_url("teams/update_form/$id"));
+
+                    die();
+
+                }
+
+            } else {
+
+				$data = array(
+                   "name"   => $this->input->post("name"),
+                   "role"   => $this->input->post("role"),
+                   "rank"   => $this->input->post("rank"),
+				);
+
+            }
+
+            $update = $this->our_teams_model->update(array("id" => $id), $data);
+
+            if($update){
+
+                $alert = array(
+                    "title" => "İşlem Başarılı",
+                    "text" => "Kayıt başarılı bir şekilde güncellendi",
+                    "type"  => "success"
+                );
+
+            } else {
+
+                $alert = array(
+                    "title" => "İşlem Başarısız",
+                    "text" => "Kayıt Güncelleme sırasında bir problem oluştu",
+                    "type"  => "error"
+                );
+            }
+
+
+            $this->session->set_flashdata("alert", $alert);
+
+            redirect(base_url("teams"));
+
+        } else {
+
+            $viewData = new stdClass();
+
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subViewFolder = "update";
+            $viewData->form_error = true;
+            $viewData->frontViewFolder = "admin";
+
+
+            $viewData->item = $this->our_teams_model->get(
+                array(
+                    "id"    => $id,
+                )
+            );
+            $this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
