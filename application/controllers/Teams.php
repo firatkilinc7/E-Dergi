@@ -196,6 +196,24 @@ class Teams extends CI_Controller
 
 	}
 
+	public function update_form($id){
+
+        $viewData = new stdClass();
+		
+        $item = $this->our_teams_model->get(
+            array(
+                "id"    => $id,
+            )
+        );
+        
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "update";
+        $viewData->frontViewFolder = "admin";
+
+        $viewData->item = $item;
+        $this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
 
 
 }
