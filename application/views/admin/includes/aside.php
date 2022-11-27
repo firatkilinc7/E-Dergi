@@ -23,8 +23,9 @@
 					
 					<li><a href="<?php echo base_url('blogs'); ?>"><i class="fa fa-file" aria-hidden="true"></i>Bloglar</a></li>
 					
-					<li><a href="<?php echo base_url('settings'); ?>"><i class="fa fa-gears" aria-hidden="true"></i>Site Ayarları</a></li>
+					<li><a href="<?php echo base_url('settings/email'); ?>"><i class="fa fa-envelope" aria-hidden="true"></i>E-Posta Ayarları</a></li>
 					
+					<li><a href="<?php echo base_url('settings'); ?>"><i class="fa fa-gears" aria-hidden="true"></i>Site Ayarları</a></li>
 				
 				</ul>
 			</nav>
