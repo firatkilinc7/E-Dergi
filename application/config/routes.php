@@ -14,6 +14,7 @@ $route['default_controller'] = 'home';
 	//Giriş İşlemleri
 	$route["login"]     = "userop/login";
 	$route["logout"]    = "userop/logout";
+	$route["reset/password"]    = "userop/forget_password";
 
 
 	//Ekibimiz Bölümü

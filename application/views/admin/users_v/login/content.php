@@ -28,10 +28,10 @@
 		<div class="form-group mb-lg">
 		  <div class="clearfix">
 			<label class="pull-left">Şifre</label>
-			<a href="<?php echo base_url('sifremi-unuttum') ?>" class="pull-right">Şifremi Unuttum</a>
+			<a href="<?php echo base_url('reset/password') ?>" class="pull-right">Şifremi Unuttum</a>
 		  </div>
 		  <div class="input-group input-group-icon">
-			<input type="password" class="form-control" placeholder="Şifre" name="user_password">
+			<input type="password" id="user_password" class="form-control" placeholder="Şifre" name="user_password">
 			<?php if(isset($form_error)){ ?>
 				<small class="pull-right input-form-error"> <?php echo form_error("user_password"); ?></small>
 			<?php } ?>
@@ -41,6 +41,8 @@
 			  </span>
 			</span>
 		  </div>
+		  <input onclick="togglePass()" name="sifreyiGoster" type="checkbox"/>
+		  <label>Şifreyi Göster</label>
 		</div>
 
 		<div class="row">
@@ -64,3 +66,20 @@
   <p class="text-center text-muted mt-md mb-md">&copy; Copyright <?php echo date('Y') ?>. Tüm Hakları Saklıdır.</p>
 </div>
 </section>
+
+<style>
+	span.icon.icon-lg {
+		padding: 4px 14px !important;
+	}
+</style>
+
+<script>
+	function togglePass() {
+		var x = document.getElementById("user_password");
+		if (x.type === "password") {
+			x.type = "text";
+		} else {
+			x.type = "password";
+		}
+	}
+</script>
