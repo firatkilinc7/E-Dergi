@@ -98,7 +98,6 @@ class Userop extends CI_Controller {
 
 			} else {
 
-					// Hata Verilecek...
 
 				$alert = array(
 					"title" => "İşlem Başarısız",
@@ -173,7 +172,7 @@ class Userop extends CI_Controller {
 
             $temp_password = random_string();
 
-            $send = send_email($user->email, "Şifremi Unuttum", "Özel Turgutlu ADSP yönetici paneline geçici olarak <b>{$temp_password}</b> şifresiyle giriş yapabilirsiniz");
+            $send = send_email($user->email, "Şifremi Unuttum", "26-40-62 yönetici paneline geçici olarak <b>{$temp_password}</b> şifresiyle giriş yapabilirsiniz");
 
             if($send){
                 
@@ -190,7 +189,7 @@ class Userop extends CI_Controller {
 
                 $alert = array(
                     "title" => "İşlem Başarılı",
-                    "text" => "Şifreniz başarılı bir şekilde sıfırlandı. Lütfen E-postanızı kontrol ediniz!",
+                    "text" => "Bu E-Posta adresi sistemde kayıtlı ise şifrenizi sıfırlamak için size bir mail göndereceğiz.",
                     "type"  => "success"
                 );
 
@@ -203,7 +202,7 @@ class Userop extends CI_Controller {
 
             } else {
 
-//                    echo $this->email->print_debugger();
+
                 $alert = array(
                     "title" => "İşlem Başarısız",
                     "text" => "E-posta gönderilirken bir problem oluştu!",
@@ -212,7 +211,7 @@ class Userop extends CI_Controller {
 
                 $this->session->set_flashdata("alert", $alert);
 
-                redirect(base_url("sifremi-unuttum"));
+                redirect(base_url("reset/password"));
 
                 die();
 
@@ -221,14 +220,14 @@ class Userop extends CI_Controller {
         } else {
 
             $alert = array(
-                "title" => "İşlem Başarısız",
-                "text" => "Böyle bir kullanıcı bulunamadı!",
-                "type"  => "error"
+				"title" => "İşlem Başarılı",
+				"text" => "Bu E-Posta adresi sistemde kayıtlı ise şifrenizi sıfırlamak için size bir mail göndereceğiz.",
+				"type"  => "success"
             );
 
             $this->session->set_flashdata("alert", $alert);
 
-            redirect(base_url("sifremi-unuttum"));
+            redirect(base_url("login"));
 
 
         }
