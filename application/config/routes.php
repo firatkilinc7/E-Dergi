@@ -28,6 +28,8 @@ $route['default_controller'] = 'home';
 	
 	//Blog Bölümü
 	$route["blogs"]                         = "blogs/index";
+	$route["blogs/rankSetter"]              = "blogs/rankSetter";
+	$route["blogs/isActiveSetter/(:any)"]   = "blogs/isActiveSetter/$1";
 	
 	
 	//Settings & E-Mail Bölümü

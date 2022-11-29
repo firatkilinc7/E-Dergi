@@ -34,6 +34,46 @@ class Blogs extends CI_Controller
 
         $this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
     }
+	
+	public function rankSetter(){
 
+
+		$data = $this->input->post("data");
+
+		parse_str($data, $order);
+
+		$items = $order["ord"];
+
+		foreach ($items as $rank => $id){
+
+			$this->blogs_model->update(
+				array(
+					"id"        => $id,
+					"rank !="   => $rank
+				),
+				array(
+					"rank"      => $rank
+				)
+			);
+		}
+	}
+
+	
+	public function isActiveSetter($id){
+
+		if($id){
+
+			$isActive = ($this->input->post("data") === "true") ? 1 : 0;
+
+			$this->blogs_model->update(
+				array(
+					"id"    => $id
+				),
+				array(
+					"isActive"  => $isActive
+				)
+			);
+		}
+	}
 
 }
