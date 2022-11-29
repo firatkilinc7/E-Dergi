@@ -3,13 +3,13 @@
     <section class="panel">
       <header class="panel-heading">
         <div class="panel-actions"> </div>
-        <h2 class="panel-title">Makale Ekleme</h2>
+        <h2 class="panel-title">Blog Ekleme</h2>
       </header>
       <div class="panel-body">
         <form class="form-horizontal form-bordered" action="<?php echo base_url("blogs/save"); ?>" method="post" enctype="multipart/form-data" method="post">
 
         <div class="form-group">
-          <label class="col-md-2 control-label">Makale Adı</label>
+          <label class="col-md-2 control-label">Blog Adı</label>
           <div class="col-md-10">
            <input class="form-control" placeholder="Makale Adı" name="title">
            <?php if(isset($form_error)){ ?>
@@ -20,7 +20,7 @@
 
 
       <div class="form-group">
-       <label class="col-md-2 control-label">Makale</label>
+       <label class="col-md-2 control-label">Blog</label>
        <div class="col-md-10">
         <textarea name="description" id="ckeditor2"></textarea>
       </div>
