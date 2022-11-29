@@ -22,19 +22,30 @@
 		}
 	}
 	
-	//user type bilgisini getir
-	function get_user_type($username){
-
+	/*
+	 *
+	 * USER YETKİSİNİ GETİR
+	 * Return Değerleri;
+	 * 1-> Anon
+	 * 2-> Editör
+	 * 3-> Admin
+	 *
+	 */
+	
+	function get_user_permission(){
+		
 		$t = &get_instance();
-
-		$t->load->model("user_model");
-
-		$user = $t->user_model->get(
-			array(
-				"user_name"  => $username
-			)
-		);	
-		return $user->type;
+		
+		$user = $t->session->userdata('user');
+		if($user->type==="anon"){
+			return '1';
+		}else if($user->type==="editor"){
+			return '2';
+		}else if($user->type==="admin"){
+			return '3';
+		}else{
+			return null;
+		}
 	}
 
 	//fotoğrafları getir, fotoğraf yoksa error (default) fotoğraf
