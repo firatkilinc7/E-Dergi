@@ -31,7 +31,7 @@
 								<td><?php echo $item->title; ?></td>
 								<td><?php echo $item->url; ?></td>                   
 								<td class="text-center w100">
-									<img width="75" src="<?php echo get_picture("$frontViewFolder/$viewFolder",$item->img_url, "900x600"); ?>" alt="" class="img-rounded">
+									<img width="140" src="<?php echo get_picture("$frontViewFolder/$viewFolder",$item->img_url, "1920x1080"); ?>" alt="" class="img-rounded">
 								</td>
 								
 								<td class="text-center w100">
