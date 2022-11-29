@@ -21,6 +21,21 @@
 			return false;
 		}
 	}
+	
+	//user type bilgisini getir
+	function get_user_type($username){
+
+		$t = &get_instance();
+
+		$t->load->model("user_model");
+
+		$user = $t->user_model->get(
+			array(
+				"user_name"  => $username
+			)
+		);	
+		return $user->type;
+	}
 
 	//fotoğrafları getir, fotoğraf yoksa error (default) fotoğraf
 	function get_picture($path = "", $picture = "", $resolution = "50x50"){

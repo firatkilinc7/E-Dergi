@@ -60,6 +60,7 @@
 
 
 	  </form>
+	  <a href="<?php echo base_url("register");?>"> <p class="text-center mt-md">Hesabınız yok mu? Hemen Kaydolun!</p> </a>
 	</div>
   </div>
 
