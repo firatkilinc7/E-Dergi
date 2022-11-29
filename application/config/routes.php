@@ -11,12 +11,13 @@ $route['default_controller'] = 'home';
  */
 
 
-	//Giriş İşlemleri
+	//User İşlemleri
 	$route["login"]                         = "userop/login";
 	$route["logout"]                        = "userop/logout";
 	$route["reset/password"]                = "userop/forget_password";
 	$route["reset/send-mail"]               = "userop/reset_password";
-
+	$route["register"]                      = "userop/register_form";
+	
 
 	//Ekibimiz Bölümü
 	$route["teams/add"]                     = "teams/new_form";
