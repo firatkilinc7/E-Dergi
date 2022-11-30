@@ -14,14 +14,20 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-striped mb-none">
 					<thead>
-						<th class="order"><i class="fa fa-reorder"></i></th>
+					
+						<?php if($user_permission>1){?>
+							<th class="order"><i class="fa fa-reorder"></i></th>
+						<?php } ;?>
+						
 						<th class="w50">#id</th>
 						<th>Başlık</th>
 						<th>Url</th>
 						<th>Görsel</th>
+						
 						<?php if($user_permission>1){?>
-						<th>Durumu</th>
+							<th>Durumu</th>
 						<?php } ;?>
+						
 						<th>İşlem</th>
 					</thead>
 					<tbody class="sortable" data-url="<?php echo base_url("blogs/rankSetter"); ?>">
@@ -29,7 +35,11 @@
 						<?php foreach($items as $item) { ?>
 
 							<tr id="ord-<?php echo $item->id; ?>">
-								<td class="order"><i class="fa fa-reorder"></i></td>
+								
+								<?php if($user_permission>1){?>
+									<td class="order"><i class="fa fa-reorder"></i></td>
+								<?php } ;?>
+								
 								<td class="w50 text-center">#<?php echo $item->id; ?></td>
 								<td><?php echo $item->title; ?></td>
 								<td><?php echo $item->url; ?></td>                   
