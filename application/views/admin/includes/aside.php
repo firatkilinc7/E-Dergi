@@ -1,8 +1,5 @@
 <?php $user_permission = get_user_permission()?>
 
-
-
-
 <aside id="sidebar-left" class="sidebar-left">
 	
 	<div class="sidebar-header">
@@ -26,26 +23,19 @@
 								<span>Ana Sayfa</span>
 							</a>
 						</li>
-					
+						
+						<li><a href="<?php echo base_url('blogs'); ?>"><i class="fa fa-file" aria-hidden="true"></i>Bloglar</a></li>
+						
 					<?php }?>
 					
 					
 					<!-- ADMİN ve EDİTÖR İÇİN GÖZÜKÜR!!-->
 					<?php if($user_permission>1){?>
 					
-						<li><a href="<?php echo base_url('blogs'); ?>"><i class="fa fa-file" aria-hidden="true"></i>Bloglar</a></li>
+						
 					
 					<?php }?>
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
+								
 					
 					<!-- SADECE ADMİN İÇİN GÖZÜKÜR!!-->
 					<?php if($user_permission>2){?>

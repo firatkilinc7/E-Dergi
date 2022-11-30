@@ -1,3 +1,4 @@
+<?php $user_permission = get_user_permission()?>
 <section class="panel">
     <header class="panel-heading">
 		<a href="<?php echo base_url("blogs/new_form"); ?>" class="btn btn-outline btn-primary btn-xs pull-right"> <i class="fa fa-plus"></i> Yeni Ekle</a>
@@ -18,7 +19,9 @@
 						<th>Başlık</th>
 						<th>Url</th>
 						<th>Görsel</th>
+						<?php if($user_permission>1){?>
 						<th>Durumu</th>
+						<?php } ;?>
 						<th>İşlem</th>
 					</thead>
 					<tbody class="sortable" data-url="<?php echo base_url("blogs/rankSetter"); ?>">
@@ -34,6 +37,7 @@
 									<img width="140" src="<?php echo get_picture("$frontViewFolder/$viewFolder",$item->img_url, "1920x1080"); ?>" alt="" class="img-rounded">
 								</td>
 								
+								<?php if($user_permission>1){?>
 								<td class="text-center w100">
 									<div class="switch switch-success">
 										<input
@@ -46,6 +50,7 @@
 										/>
 									</div>
 								</td>
+								<?php }; ?>
 								
 								<td class="text-center w200">
 									<button
