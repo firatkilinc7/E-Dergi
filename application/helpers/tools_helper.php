@@ -47,6 +47,13 @@
 			return null;
 		}
 	}
+	
+	//Aktif kullanıcının kullanıcı adını getir
+	function get_user_name(){
+		
+		$t = &get_instance();
+		return $t->session->userdata('user')->user_name;
+	}
 
 	//fotoğrafları getir, fotoğraf yoksa error (default) fotoğraf
 	function get_picture($path = "", $picture = "", $resolution = "50x50"){
