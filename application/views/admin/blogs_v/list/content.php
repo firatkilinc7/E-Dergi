@@ -22,11 +22,9 @@
 						<th class="w50">#id</th>
 						<th>Başlık</th>
 						<th>Url</th>
+						<th>Yazar</th>
 						<th>Görsel</th>
-						
-						<?php if($user_permission>1){?>
-							<th>Durumu</th>
-						<?php } ;?>
+						<th>Durumu</th>
 						
 						<th>İşlem</th>
 					</thead>
@@ -43,24 +41,27 @@
 								<td class="w50 text-center">#<?php echo $item->id; ?></td>
 								<td><?php echo $item->title; ?></td>
 								<td><?php echo $item->url; ?></td>                   
+								<td><?php echo $item->author; ?></td>                   
 								<td class="text-center w100">
 									<img width="140" src="<?php echo get_picture("$frontViewFolder/$viewFolder",$item->img_url, "1920x1080"); ?>" alt="" class="img-rounded">
 								</td>
 								
 								<?php if($user_permission>1){?>
-								<td class="text-center w100">
-									<div class="switch switch-success">
-										<input
-											data-url="<?php echo base_url("blogs/isActiveSetter/$item->id"); ?>"
-											class="isActive"
-											type="checkbox"
-											name="switch" 
-											data-plugin-ios-switch 
-											<?php echo ($item->isActive) ? "checked" : ""; ?> 
-										/>
-									</div>
-								</td>
-								<?php }; ?>
+									<td class="text-center w100">
+										<div class="switch switch-success">
+											<input
+												data-url="<?php echo base_url("blogs/isActiveSetter/$item->id"); ?>"
+												class="isActive"
+												type="checkbox"
+												name="switch" 
+												data-plugin-ios-switch 
+												<?php echo ($item->isActive) ? "checked" : ""; ?> 
+											/>
+										</div>
+									</td>
+								<?php } else{ ?>
+									<td class="w100"><?php echo ($item->isActive) ? "Onaylandı" : "Onay Bekliyor"; ?> </td>
+								<?php } ?>
 								
 								<td class="text-center w200">
 									<button
