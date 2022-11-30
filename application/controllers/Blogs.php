@@ -22,10 +22,20 @@ class Blogs extends CI_Controller
     public function index(){
 
         $viewData = new stdClass();
+		
+		if(get_user_permission() < 2){
+			
+			$items = $this->blogs_model->get_all(
+				array(
+					"author"    => get_user_name()
+				)
+			);	
+		}else{
 
-        $items = $this->blogs_model->get_all(
-            array(), "rank ASC"
-        );
+			$items = $this->blogs_model->get_all(
+				array(), "rank ASC"
+			);		
+		}
 
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "list";
@@ -125,12 +135,14 @@ class Blogs extends CI_Controller
             $benzersizsayi2=rand(20000,32000);
             $benzersizad=$benzersizsayi1.$benzersizsayi2;
 
+			$author = 
 
             $file_name = $benzersizad.".".convertToSEO(pathinfo($_FILES["img_url"]["name"], PATHINFO_FILENAME)) . "." . pathinfo($_FILES["img_url"]["name"], PATHINFO_EXTENSION);
 
             $image_1920x1080 = upload_picture($_FILES["img_url"]["tmp_name"], "uploads/admin/$this->viewFolder",1920,1080, $file_name);
           
-
+			
+			
             if($image_1920x1080 ){
 
                 $insert = $this->blogs_model->add(
@@ -140,8 +152,9 @@ class Blogs extends CI_Controller
                         "url"           => rtrim(convertToSEO($this->input->post("title"))),
                         "img_url"       => $file_name,
                         "rank"          => 0,
-                        "isActive"      => 1,
-                        "createdAt"     => date("Y-m-d H:i:s")
+                        "isActive"      => get_user_permission() == 1 ? 0: 1,
+                        "createdAt"     => date("Y-m-d H:i:s"),
+                        "author"        => $this->session->userdata('user')->user_name
                     )
                 );
 
@@ -204,7 +217,20 @@ class Blogs extends CI_Controller
 				"id"    => $id
 			)
 		);
-
+		
+		if(get_user_permission() < 2 and get_user_name() != $fileName->author){
+			
+			$alert = array(
+					"title" => "İşlem Başarısız",
+					"text"  => "Sadece Kendi Yazılarınızı Silebilirsiniz.",
+					"type"  => "error"
+			);
+			
+			$this->session->set_flashdata("alert", $alert);
+			redirect(base_url("blogs"));
+		}
+		
+		
 		$delete = $this->blogs_model->delete(
 			array(
 				"id"    => $id
@@ -217,22 +243,22 @@ class Blogs extends CI_Controller
 
 			$alert = array(
 				"title" => "İşlem Başarılı",
-				"text" => "Kayıt başarılı bir şekilde silindi",
+				"text"  => "Kayıt başarılı bir şekilde silindi",
 				"type"  => "success"
 			);
 
 		} else {
 
 			$alert = array(
-				"title" => "İşlem Başarılı",
-				"text" => "Kayıt silme sırasında bir problem oluştu",
+				"title" => "İşlem Başarısız",
+				"text"  => "Kayıt silme sırasında bir problem oluştu",
 				"type"  => "error"
 			);
 		}
-
+	
 		$this->session->set_flashdata("alert", $alert);
 		redirect(base_url("blogs"));
-
+	
 	}
 	
 	
@@ -265,7 +291,20 @@ class Blogs extends CI_Controller
                 "id"    => $id
             )
         );
-
+		
+		
+		if(get_user_permission() < 2 and get_user_name() != $oldFileName->author){
+			
+			$alert = array(
+					"title" => "İşlem Başarısız",
+					"text"  => "Sadece Kendi Yazılarınızı Düzenleyebilirsiniz.",
+					"type"  => "error"
+			);
+			
+			$this->session->set_flashdata("alert", $alert);
+			redirect(base_url("blogs"));
+		}
+			
         $this->form_validation->set_rules("title", "Başlık", "required|trim");
 
         $this->form_validation->set_message(
