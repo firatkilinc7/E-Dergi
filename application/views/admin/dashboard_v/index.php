@@ -2,6 +2,8 @@
 <html class="fixed">
 <head>
 	<?php $this->load->view("admin/includes/head"); ?>
+	
+	<script src="<?php echo base_url('assets/admin/javascripts'); ?>/gchart.js"></script>
 </head>
 <body>
 	<section class="body">
