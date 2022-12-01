@@ -35,5 +35,10 @@ class User_model extends CI_Model
     {
         return $this->db->where($where)->delete($this->tableName);
     }
+	
+	public function get_count($where = array())
+    {
+        return $this->db->where($where)->get($this->tableName)->num_rows();
+    }
 
 }

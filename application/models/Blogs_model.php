@@ -40,5 +40,9 @@ class Blogs_model extends CI_Model
     {
         return $sonuc =$this->db->from($from)->where($where)->count_all_results();
     }
-
+	
+	public function get_count($where = array())
+    {
+        return $this->db->where($where)->get($this->tableName)->num_rows();
+    }
 }
