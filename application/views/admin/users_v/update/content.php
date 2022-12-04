@@ -44,6 +44,7 @@
           <select name="type" id="user_type">
 			  <option <?=$item->type=='admin'?'selected="selected"':'';?> value="admin">Admin</option>
 			  <option <?=$item->type=='editor'?'selected="selected"':'';?> value="editor">Editör</option>
+			  <option <?=$item->type=='author'?'selected="selected"':'';?> value="author">Author</option>
 			  <option <?=$item->type=='anon'?'selected="selected"':'';?> value="anon">Anon</option>
 		  </select>
         </div>

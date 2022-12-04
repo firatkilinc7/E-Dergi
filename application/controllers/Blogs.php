@@ -23,7 +23,7 @@ class Blogs extends CI_Controller
 
         $viewData = new stdClass();
 		
-		if(get_user_permission() < 2){
+		if(get_user_permission() < 3){
 			
 			$items = $this->blogs_model->get_all(
 				array(
@@ -218,7 +218,7 @@ class Blogs extends CI_Controller
 			)
 		);
 		
-		if(get_user_permission() < 2 and get_user_name() != $fileName->author){
+		if(get_user_permission() < 3 and get_user_name() != $fileName->author){
 			
 			$alert = array(
 					"title" => "İşlem Başarısız",
@@ -293,7 +293,7 @@ class Blogs extends CI_Controller
         );
 		
 		
-		if(get_user_permission() < 2 and get_user_name() != $oldFileName->author){
+		if(get_user_permission() < 3 and get_user_name() != $oldFileName->author){
 			
 			$alert = array(
 					"title" => "İşlem Başarısız",

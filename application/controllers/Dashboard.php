@@ -13,8 +13,6 @@ class Dashboard extends CI_Controller {
 		
 		$this->load->model("blogs_model");
 		$this->load->model("user_model");
-        
-		$user_permission = get_user_permission();
 		
         if(!get_active_user()){
             redirect(base_url("login"));
@@ -27,7 +25,7 @@ class Dashboard extends CI_Controller {
 		$blog_array_active = array();
 		$blog_array_deactive = array();
 		
-		if(get_user_permission()==1){
+		if(get_user_permission() < 3){
 			
 			$blog_array_active = array(
 				"isActive"  => 1,
@@ -61,6 +59,13 @@ class Dashboard extends CI_Controller {
 			)
 		);
 		
+		$num_author = $this->user_model->get_count(
+			
+			array(
+				"type"  => 'author'
+			)
+		);
+		
 		$num_editor = $this->user_model->get_count(
 			
 			array(
@@ -82,6 +87,7 @@ class Dashboard extends CI_Controller {
         $viewData->num_blogs_active    = $num_blogs_active;
         $viewData->num_blogs_deactive  = $num_blogs_deactive;
         $viewData->num_admin           = $num_admin;
+        $viewData->num_author          = $num_author;
         $viewData->num_editor  		   = $num_editor;
         $viewData->num_anon   		   = $num_anon;
 		

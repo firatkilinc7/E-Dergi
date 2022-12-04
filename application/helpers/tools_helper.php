@@ -27,6 +27,7 @@
 	 * USER YETKİSİNİ GETİR
 	 * Return Değerleri;
 	 * 1-> Anon
+	 * 2-> İçerik Sağlayıcı (Onaylı Yazar)
 	 * 2-> Editör
 	 * 3-> Admin
 	 *
@@ -39,10 +40,12 @@
 		$user = $t->session->userdata('user');
 		if($user->type==="anon"){
 			return '1';
-		}else if($user->type==="editor"){
+		}else if($user->type==="author"){
 			return '2';
-		}else if($user->type==="admin"){
+		}else if($user->type==="editor"){
 			return '3';
+		}else if($user->type==="admin"){
+			return '4';
 		}else{
 			return null;
 		}

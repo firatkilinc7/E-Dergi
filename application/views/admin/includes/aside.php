@@ -30,7 +30,7 @@
 					
 					
 					<!-- ADMİN ve EDİTÖR İÇİN GÖZÜKÜR!!-->
-					<?php if($user_permission>1){?>
+					<?php if($user_permission>2){?>
 					
 						
 					
@@ -38,7 +38,7 @@
 								
 					
 					<!-- SADECE ADMİN İÇİN GÖZÜKÜR!!-->
-					<?php if($user_permission>2){?>
+					<?php if($user_permission>3){?>
 					
 					<li><a href="<?php echo base_url('teams'); ?>"><i class="fa fa-male" aria-hidden="true"></i>Ekibimiz</a></li>
 					
