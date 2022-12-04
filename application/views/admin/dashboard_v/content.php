@@ -1,16 +1,20 @@
-<?php 
-$user_permission = get_user_permission();
-$text4anon = "Yazılarım";
-$text4editor = "Yazılar";
-?>
+<?php $user_permission = get_user_permission();?>
 
 <section class="panel">
     <header class="panel-heading">
         <h2 class="panel-title">Dashboard</h2>
     </header>
     <div class="panel-body">
-		<div id="pie_yazilar" style="float:left"></div>
-		<?php if($user_permission > 2){ ?>
+		<?php 
+		
+		if($num_blogs_active + $num_blogs_deactive == 0){ ?>
+			<p>Hiç Yazınız yok. <a href="<?php echo base_url("blogs");?>">buraya tıklayarak</a> ekleyebilirsiniz. </p> 
+		<?php } else { ?>
+			<div id="pie_yazilar" style="float:left"></div>
+		<?php } ?>
+		
+		
+		<?php if($user_permission > 3){ ?>
 			<div id="pie_uyeler" style="float:left"></div>
 		<?php } ?>
 	</div>
@@ -28,7 +32,7 @@ google.charts.setOnLoadCallback(drawChart);
 // Draw the chart and set the chart values
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
-  ['Task', 'Hours per Day'],
+  ['Onay Durumu', 'Yazı Sayısı'],
   ['Onaylandı', <?php echo $num_blogs_active; ?>],
   ['Onay Bekliyor', <?php echo $num_blogs_deactive; ?>]
 ]);
@@ -49,8 +53,9 @@ google.charts.setOnLoadCallback(drawChart2);
 // Draw the chart and set the chart values
 function drawChart2() {
   var data = google.visualization.arrayToDataTable([
-  ['Task', 'Hours per Day'],
+  ['Üye Rolü', 'Üye Sayısı'],
   ['Admin', <?php echo $num_admin; ?>],
+  ['Yazar', <?php echo $num_author; ?>],
   ['Editör', <?php echo $num_editor; ?>],
   ['Anon', <?php echo $num_anon; ?>]
 ]);
