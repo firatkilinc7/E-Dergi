@@ -135,8 +135,6 @@ class Blogs extends CI_Controller
             $benzersizsayi2=rand(20000,32000);
             $benzersizad=$benzersizsayi1.$benzersizsayi2;
 
-			$author = 
-
             $file_name = $benzersizad.".".convertToSEO(pathinfo($_FILES["img_url"]["name"], PATHINFO_FILENAME)) . "." . pathinfo($_FILES["img_url"]["name"], PATHINFO_EXTENSION);
 
             $image_1920x1080 = upload_picture($_FILES["img_url"]["tmp_name"], "uploads/admin/$this->viewFolder",1920,1080, $file_name);

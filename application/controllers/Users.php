@@ -265,7 +265,7 @@ class Users extends CI_Controller
                 "max_length"  =>"Şifreniz 8 karakterden fazla olamaz"
             )
         );
-		echo "ASDASD";
+
         $validate = $this->form_validation->run();
 
         if($validate){
@@ -281,7 +281,7 @@ class Users extends CI_Controller
 
                 $alert = array(
                     "title" => "İşlem Başarılı",
-                    "text" => "Şifreniz başarılı bir şekilde güncellendi",
+                    "text"  => "Şifreniz başarılı bir şekilde güncellendi",
                     "type"  => "success"
                 );
 
@@ -354,6 +354,127 @@ class Users extends CI_Controller
 
 	}
 
+
+	public function profile(){
+
+        $viewData = new stdClass();
+
+        $viewData->item = $this->user_model->get(
+			array(
+				"id"    => $this->session->userdata('user')->id
+			)
+		);
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "profile";
+        $viewData->frontViewFolder = "admin";
+
+
+        $this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+    }
+	
+	public function profile_update_form(){
+
+        $viewData = new stdClass();
+
+        $viewData->item = $this->user_model->get(
+			array(
+				"id"    => $this->session->userdata('user')->id
+			)
+		);
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "profile_update";
+        $viewData->frontViewFolder = "admin";
+
+
+        $this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+    }
+
+	
+	public function profile_update($id){
+
+		$this->load->library("form_validation");
+
+		$oldUser = $this->user_model->get(
+			array(
+				"id"    => $id
+			)
+		);
+
+		if($oldUser->user_name != $this->input->post("user_name")){
+			$this->form_validation->set_rules("user_name", "Kullanıcı Adı", "required|trim|is_unique[users.user_name]");
+		}
+
+		if($oldUser->email != $this->input->post("email")){
+			$this->form_validation->set_rules("email", "E-posta", "required|trim|valid_email|is_unique[users.email]");
+		}
+
+
+		$this->form_validation->set_rules("full_name", "Ad Soyad", "required|trim");
+
+
+		$this->form_validation->set_message(
+			array(
+				"required"    => "<b>{field}</b> alanı doldurulmalıdır",
+				"valid_email" => "Lütfen geçerli bir e-posta adresi giriniz",
+				"is_unique"   => "<b>{field}</b> alanı daha önceden kullanılmış",
+			)
+		);
+
+		$validate = $this->form_validation->run();
+
+		if($validate){
+
+			$update = $this->user_model->update(
+				array("id" => $id),
+				array(
+					"user_name"     => $this->input->post("user_name"),
+					"full_name"     => $this->input->post("full_name"),
+					"email"         => $this->input->post("email"),
+				)
+			);
+
+			if($update){
+
+				$alert = array(
+					"title" => "İşlem Başarılı",
+					"text" => "Kayıt başarılı bir şekilde güncellendi",
+					"type"  => "success"
+				);
+
+			} else {
+
+				$alert = array(
+					"title" => "İşlem Başarısız",
+					"text" => "Kayıt Güncelleme sırasında bir problem oluştu",
+					"type"  => "error"
+				);
+			}
+
+			$this->session->set_flashdata("alert", $alert);
+
+			redirect(base_url("profile"));
+
+		} else {
+
+			$viewData = new stdClass();
+
+			$viewData->viewFolder = $this->viewFolder;
+			$viewData->subViewFolder = "profile_update";
+			$viewData->form_error = true;
+			$viewData->frontViewFolder = "admin";
+
+			$viewData->item = $this->user_model->get(
+				array(
+					"id"    => $id,
+				)
+			);
+
+			$this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+		}
+
+	}
 
 
 }

@@ -17,6 +17,9 @@ $route['default_controller'] = 'home';
 	$route["reset/password"]                = "userop/forget_password";
 	$route["reset/send-mail"]               = "userop/reset_password";
 	$route["register"]                      = "userop/register_form";
+	$route["profile"]                       = "users/profile";
+	$route["profile/update_form"]           = "users/profile_update_form";
+	$route["profile/update/(:any)"]         = "users/profile_update/$1";
 	
 
 	//Ekibimiz Bölümü
