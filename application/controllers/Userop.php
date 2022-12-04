@@ -172,7 +172,7 @@ class Userop extends CI_Controller {
 
 				$temp_password = random_string();
 
-				$send = send_email($user->email, "Şifremi Unuttum", "26-40-62 yönetici paneline geçici olarak <b>{$temp_password}</b> şifresiyle giriş yapabilirsiniz");
+				$send = send_email($user->email, "Şifremi Unuttum", "26-40-62 paneline geçici olarak <b>{$temp_password}</b> şifresiyle giriş yapabilirsiniz");
 
 				if($send){
 
@@ -194,6 +194,7 @@ class Userop extends CI_Controller {
 
 					$this->session->set_flashdata("alert", $alert);
 
+					
 					redirect(base_url("login"));
 
 					die();
@@ -209,7 +210,7 @@ class Userop extends CI_Controller {
 					);
 
 					$this->session->set_flashdata("alert", $alert);
-
+					
 					redirect(base_url("reset/password"));
 
 					die();

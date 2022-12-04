@@ -3,7 +3,7 @@
 $config['useragent']        = 'PHPMailer';              // Mail engine switcher: 'CodeIgniter' or 'PHPMailer'
 $config['protocol']         = 'smtp';                   // 'mail', 'sendmail', or 'smtp'
 $config['mailpath']         = '/usr/sbin/sendmail';
-$config['smtp_host']        = '';x
+$config['smtp_host']        = '';
 $config['smtp_user']        = '';
 $config['smtp_pass']        = '';
 $config['smtp_port']        = 465;
