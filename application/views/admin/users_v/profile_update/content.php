@@ -42,7 +42,7 @@
 						<div class="col-md-3">
 							<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
 							<button type="submit" class="btn btn-primary btn-md">Güncelle</button>
-							<a href="<?php echo base_url("users"); ?>" class="btn btn-md btn-danger btn-outline">İptal</a>
+							<a href="<?php echo base_url("profile"); ?>" class="btn btn-md btn-danger btn-outline">İptal</a>
 						</div>
 					</div>
 				</form>

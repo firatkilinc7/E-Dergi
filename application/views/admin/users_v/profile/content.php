@@ -34,8 +34,16 @@
 				<p><?php echo $item->type; ?></p>
 			</div>
         </div>
+		
+		<div>
+			<label class="col-md-2 control-label">Şifre</label>
+			<div class="col-md-10">
+				<p><b>********</b></p>
+			</div>
+        </div>
 
         <div>
-          <a href="<?php echo base_url("profile/update_form");?>"> <p class="text-center mt-md">Bilgileriniz yanlış mı? Güncelleyin!</p> </a>
+			  <a href="<?php echo base_url("profile/update_form"); ?>" class="btn btn-sm btn-primary btn-outline"><i class="fa fa-pencil-square-o"></i> Düzenle</a>
+			  <a href="<?php echo base_url("profile/update_password_form"); ?>" class="btn btn-sm btn-warning btn-outline"><i class="fa fa-key"></i> Şifre Değiştir</a>
         </div>
     </div>

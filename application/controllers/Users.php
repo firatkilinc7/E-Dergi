@@ -476,5 +476,117 @@ class Users extends CI_Controller
 
 	}
 
+	public function profile_update_password_form(){
+
+        $viewData = new stdClass();
+
+        $viewData->item = $this->user_model->get(
+			array(
+				"id"    => $this->session->userdata('user')->id
+			)
+		);
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "profile_password";
+        $viewData->frontViewFolder = "admin";
+
+
+        $this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+    }
+
+	
+	public function profile_update_password($id){
+
+        $this->load->library("form_validation");
+
+        $this->form_validation->set_rules("password", "Şifre", "required|trim|min_length[6]|max_length[8]");
+        $this->form_validation->set_rules("re_password", "Şifre Tekrar", "required|trim|min_length[6]|max_length[8]|matches[password]");
+
+        $this->form_validation->set_message(
+            array(
+                "required"    => "<b>{field}</b> alanı doldurulmalıdır",
+                "matches"     => "Şifreler birbirlerini tutmuyor",
+                "min_length" =>"Şifreniz en az 6 karakter olmalı",
+                "max_length" =>"Şifreniz 8 karakterden fazla olamaz"
+            )
+        );
+
+        $validate = $this->form_validation->run();
+
+        if($validate){
+
+            $user = $this->user_model->get(
+				array(
+					"email"     => $this->session->userdata('user')->email,
+					"password"  => md5($this->input->post("old_password")),
+					"isActive"  => 1
+				)
+			);
+			
+			if($user){
+				
+				$update = $this->user_model->update(
+					array("id" => $id),
+					array(
+						"password"      => md5($this->input->post("password")),
+					)
+				);
+
+				if($update){
+
+					$alert = array(
+						"title" => "İşlem Başarılı",
+						"text"  => "Şifreniz başarılı bir şekilde güncellendi",
+						"type"  => "success"
+					);
+
+				} else {
+
+					$alert = array(
+						"title" => "İşlem Başarısız",
+						"text"  => "Şifre güncelleme sırasında bir problem oluştu",
+						"type"  => "error"
+					);
+				}
+
+				$this->session->set_flashdata("alert", $alert);
+
+				redirect(base_url("profile"));
+				
+			}else{
+				
+				$alert = array(
+						"title" => "İşlem Başarısız",
+						"text"  => "Mevcut şifreniz yanlış!",
+						"type"  => "error"
+					);
+				
+				$this->session->set_flashdata("alert", $alert);
+
+				redirect(base_url("profile/update_password_form"));
+			}
+					
+
+        } else {
+
+            $viewData = new stdClass();
+
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subViewFolder = "password";
+            $viewData->form_error = true;
+			$viewData->frontViewFolder = "back";
+
+
+            $viewData->item = $this->user_model->get(
+                array(
+                    "id"    => $id,
+                )
+            );
+
+            
+        $this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+        }
+
+    }
 
 }
