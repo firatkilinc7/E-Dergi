@@ -32,7 +32,7 @@
 				<ul class="list-unstyled">
 					
 					<li>
-						<a role="menuitem" tabindex="-1" href=""><i class="fa fa-user"></i>Profilim</a>
+						<a role="menuitem" tabindex="-1" href="<?php echo base_url("profile");?>"><i class="fa fa-user"></i>Profilim</a>
 					</li>
 					
 					<li>
