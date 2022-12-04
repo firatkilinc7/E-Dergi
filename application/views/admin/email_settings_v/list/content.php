@@ -24,7 +24,6 @@
 						<th>Port</th>
 						<th>E-posta</th>
 						<th>Kime</th>
-						<th>Durumu</th>
 						<th>İşlem</th>
 					</thead>
 					
@@ -38,18 +37,6 @@
 								<td class="text-center"><?php echo $item->port; ?></td>
 								<td class="text-center"><?php echo $item->user; ?></td>
 								<td class="text-center"><?php echo $item->to; ?></td>
-								
-								<td class="text-center w100">
-									<div class="switch switch-success">
-										<input
-										data-url="<?php echo base_url("settings/email/isActiveSetter/$item->id"); ?>"
-										class="isActive"
-										type="checkbox"
-										name="switch" 
-										data-plugin-ios-switch 
-										<?php echo ($item->isActive) ? "checked" : ""; ?> />
-									</div>
-								</td>
 								
 								<td class="text-center w200">
 									<button
