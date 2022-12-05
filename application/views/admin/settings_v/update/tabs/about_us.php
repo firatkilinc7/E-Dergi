@@ -23,7 +23,6 @@
         </script>       
     </div>
 
-
     <div class="row">
         <div class="col-md-2">
             <img
@@ -34,11 +33,17 @@
             >
         </div>
 
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
             <label>Hakkımızda Resim Seçimi</label>
             <input type="file" name="about_img_url" class="form-control">
         </div>
-
+		<div class="form-group col-md-6">
+			<label>Slogan</label>
+			<input class="form-control" placeholder="Sloganınız" name="slogan"
+			value="<?php echo $item->slogan; ?>">
+		</div>
     </div>
-
+	
+	
+	
 </div>

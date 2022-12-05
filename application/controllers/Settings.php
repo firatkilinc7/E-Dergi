@@ -84,6 +84,7 @@ class Settings extends CI_Controller
 				"about_us"         => $this->input->post("about_uss"),
                 "about_ush2"       => $this->input->post("about_ush2"),
                 "about_footer"     => $this->input->post("about_footer"),
+                "slogan"           => $this->input->post("slogan"),
                 "email"            => $this->input->post("email"),
                 "facebook"         => $this->input->post("facebook"),
                 "youtube"          => $this->input->post("youtube"),
