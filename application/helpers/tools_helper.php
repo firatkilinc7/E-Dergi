@@ -57,7 +57,21 @@
 		$t = &get_instance();
 		return $t->session->userdata('user')->user_name;
 	}
-
+	
+	//Kullanıcı Adının Tam Adını Getir
+	function get_users_full_name($user_name){
+		$t = &get_instance();
+		$t->load->model("user_model");
+		
+		$user = $t->user_model->get(
+			array(
+				"isActive"    => 1,
+				"user_name"   => $user_name
+			)
+		);
+		return $user->full_name;
+	}
+	
 	//fotoğrafları getir, fotoğraf yoksa error (default) fotoğraf
 	function get_picture($path = "", $picture = "", $resolution = "50x50"){
 
@@ -156,5 +170,14 @@
 
 		return $t->email->send();
     
-}
+	}
+	
+	function get_articles(){
+		
+		$t = &get_instance();
+		$t->load->model("blog_model")
+		
+		
+	}
+
 ?>
