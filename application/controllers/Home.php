@@ -21,6 +21,7 @@ class Home extends MY_Controller {
 		
 		$this->load->model("our_teams_model");
 		$this->load->model("settings_model");
+		$this->load->model("blogs_model");
 		
 		$our_teams = $this->our_teams_model->get_all(
 			array(
@@ -30,12 +31,20 @@ class Home extends MY_Controller {
 		
 		$settings = $this->settings_model->get();
 		
+		$articles = $this->blogs_model->get_all(
+			array(
+				"isActive"  => 1,
+			),
+		);
+		
 		$viewData->frontViewFolder = "front";
 		$viewData->viewFolder      = "home_v";
+		
+		$viewData->articles        = $articles;
 		$viewData->settings        = $settings;
 		$viewData->our_teams       = $our_teams;
+		
 		$this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}", $viewData);
-
 
 	}
 	
@@ -51,7 +60,41 @@ class Home extends MY_Controller {
 	}
 	
 
+	public function blog_detail($url = ""){
+
+		$viewData = new stdClass();
+		$viewData->viewFolder = "blog_v";
+		$viewData->frontViewFolder = "front";
+		
+
+		$this->load->model("blogs_model");
+
+		$viewData->blog = $this->blogs_model->get(
+			array(
+				"isActive"  => 1,
+				"url"       => $url
+			)
+		);
+		
+		if ( empty( $viewData->blog ) === true ){
+			$viewData = new stdClass();
+			$viewData->viewFolder = "page_404";
+			$viewData->frontViewFolder = "front";
+			
+			$this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}", $viewData);
+		}
+		
+		$items = $this->blogs_model->get_all(
+            array(), "createdAt desc"
+        );
+		
+		$viewData->items = $items;
+
+
+		$this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}", $viewData);
 
 	}
+
+}
 	
 	
