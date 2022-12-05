@@ -25,12 +25,20 @@
 				</li>            
                 
 				
-                <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" id="blogs" href="#" data-bs-toggle="dropdown">Blog</a>
+                <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" id="blogs" href="#" data-bs-toggle="dropdown">Yazılarımız</a>
                   <ul class="dropdown-menu">
-                    
-                      <li><a href="404">asd</a>
-                      </li>
-                    
+					<?php 
+						$blogs = get_articles(); 
+						$blog_sayisi = 0;
+					?>
+                    <?php foreach ($blogs as $blog){?>
+						<li><a href="yazilar/<?php echo $blog->url;?>"><?php echo $blog->title;?></a></li>
+						<?php 
+							$blog_sayisi++;
+							if($blog_sayisi===8){
+								break;
+							}
+						} ?>
                   </ul>
                 </li>
          

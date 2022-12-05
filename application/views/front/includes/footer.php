@@ -41,17 +41,24 @@
        
             <li class="mb-3"><a class="list-group-item-action" href="<?php echo base_url("iletisim");?>">İletişim</a></li>
          
-            <li> <a class="list-group-item-action" href="<?php echo base_url("404") ?>">404</a></li>
           
 		  </ul>
         </div>
         <div class="col-12 col-sm-6 col-lg-3 col-xl-2 mt-6 mt-lg-0 footer-list">
           <h5 class="mb-4 text-white">Blog</h5>
           <ul class="list-unstyled mb-0">
-          
-            <li class="mb-3"><a class="list-group-item-action" href="404">DENEME</a>
-            </li>
-         
+			
+			<?php 
+				$blogs = get_articles(); 
+				$blog_sayisi = 0;
+			    foreach ($blogs as $blog){?>
+				<li class="mb-3"><a class="list-group-item-action" href="yazilar/<?php echo $blog->url;?>"><?php echo $blog->title; ?></a></li>
+				<?php 
+					$blog_sayisi++;
+					if($blog_sayisi===5){
+						break;
+					}
+				} ?> 
           </ul>
         </div>
         <div class="col-12 col-lg-6 col-xl-4 mt-6 mt-xl-0">
