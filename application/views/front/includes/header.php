@@ -1,9 +1,5 @@
-
-
-
-
-  <!--header start-->
-  <header id="site-header" class="header">
+<!--header start-->
+<header id="site-header" class="header">
     <div id="header-wrap">
       <div class="container">
         <div class="row">
