@@ -172,12 +172,17 @@
     
 	}
 	
+	//Header Dropdown Menu için blogları en çok okunan sırasına göre getir.
 	function get_articles(){
 		
 		$t = &get_instance();
-		$t->load->model("blog_model")
+		$t->load->model("blogs_model");
 		
+		$articles = $t->blogs_model->get_all(
+            array(), "viewCount DESC"
+        );
 		
+		return $articles;
 	}
 
 ?>
