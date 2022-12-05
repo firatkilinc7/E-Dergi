@@ -39,7 +39,7 @@ Button
 button:focus { outline: none; }
 .btn-link { color: #102e46 }
 .btn-link:hover { color: #0049d0 }
-.btn:before { width: 110%; height: 110%; content: ''; margin: auto; position: absolute; top: -110%; left: -110%; background: #0049d0; transition: all .5s; z-index: -1; border-radius: .25rem; }
+.btn:before { width: 110%; height: 110%; content: ''; margin: auto; position: absolute; top: -110%; left: -110%; background: #fadd01; transition: all .5s; z-index: -1; border-radius: .25rem; }
 .btn:hover:before { top: 0; left: 0; }
 .btn.btn-primary:before { background: #102e46 }
 

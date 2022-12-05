@@ -376,7 +376,7 @@ Pre Loader
 
 .navbar-nav .nav-link {
   padding: 7px 15px 4px !important;
-  color: #102e46;
+  color: #fadd01;
   font-size: 15px;
   border-radius: .25rem;
   text-transform: capitalize;
@@ -385,7 +385,9 @@ Pre Loader
 }
 
 .navbar-nav .nav-link:hover, .navbar-nav .nav-item .nav-link.active {
-  color: #ffffff;
+    color: #102e46;
+    background-color: #fadd01;
+}
 }
 
 .navbar-nav .nav-link.dropdown-toggle:hover::after, .navbar-nav .nav-item .nav-link.dropdown-toggle.active::after {
