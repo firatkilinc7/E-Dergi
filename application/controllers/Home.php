@@ -76,6 +76,49 @@ class Home extends MY_Controller {
 			)
 		);
 		
+		
+		
+		
+		
+		$post_id = $viewData->blog->id;
+		$post_view = $viewData->blog->viewCount;
+		
+		if(isset($_COOKIE['read_articles'])) {
+
+			$read_articles = json_decode($_COOKIE['read_articles'], true);
+			if(isset($read_articles[$post_id]) AND $read_articles[$post_id] == 1) {
+				//zaten okunmus
+			} else {
+				
+				$post_view++;
+				$read_articles[$post_id] = 1;
+
+				setcookie("read_articles",json_encode($read_articles),time()+60*60*24);  
+
+			}
+
+		} else {
+			
+			$post_view++;
+
+			$read_articles = Array(); 
+			$read_articles[$post_id] = 1;
+			setcookie("read_articles",json_encode($read_articles),time()+60*60*24);      
+
+		}
+		
+		$data_count = array(
+			"viewCount"   => $post_view
+        );
+		$update = $this->blogs_model->update(array("id" => $post_id), $data_count);
+		
+		
+		
+		
+		
+		
+		
+		
 		if ( empty( $viewData->blog ) === true ){
 			$viewData = new stdClass();
 			$viewData->viewFolder = "page_404";
@@ -94,6 +137,17 @@ class Home extends MY_Controller {
 		$this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}", $viewData);
 
 	}
+
+	public function about_us(){
+
+			$viewData = new stdClass();
+			$viewData->viewFolder = "about_us_v";
+			$viewData->frontViewFolder = "front";
+
+
+			$this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}", $viewData);
+
+		}
 
 }
 	

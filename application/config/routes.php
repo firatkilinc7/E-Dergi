@@ -38,3 +38,14 @@ $route['default_controller'] = 'home';
 	$route["settings/email"]                 = "email/index";
 	$route["settings/email/delete/(:any)"]   = "email/delete/$1";
 	
+	
+	
+/*
+ * WEBSITE ONYUZ ISLEMLERI
+ */
+	
+	//HAKKIMIZDA
+	$route["hakkimizda"]                 = "home/about_us";
+	
+	//YAZILAR
+	$route["yazilar/(:any)"]   = "home/blog_detail/$1";

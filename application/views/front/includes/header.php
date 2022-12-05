@@ -32,7 +32,7 @@
 						$blog_sayisi = 0;
 					?>
                     <?php foreach ($blogs as $blog){?>
-						<li><a href="yazilar/<?php echo $blog->url;?>"><?php echo $blog->title;?></a></li>
+						<li><a href="<?php echo base_url("yazilar/".$blog->url);?>"><?php echo $blog->title;?></a></li>
 						<?php 
 							$blog_sayisi++;
 							if($blog_sayisi===8){
