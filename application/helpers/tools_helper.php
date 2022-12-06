@@ -72,6 +72,17 @@
 		return $user->full_name;
 	}
 	
+	//Kullanıcı Bilgilerini Getir
+	function get_all_users(){
+		$t = &get_instance();
+		$t->load->model("user_model");
+		
+		$users = $t->user_model->get_all(
+			array()
+		);
+		return $users;
+	}
+	
 	//fotoğrafları getir, fotoğraf yoksa error (default) fotoğraf
 	function get_picture($path = "", $picture = "", $resolution = "50x50"){
 
