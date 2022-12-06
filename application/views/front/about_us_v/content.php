@@ -73,56 +73,18 @@
       </div>
       <div class="col-lg-6 ps-lg-8 mt-5 mt-lg-0">
         <div class="row">
-          <div class="col-sm-6">
-            <div class="team-member">
-              <div class="team-images">
-                <img class="img-fluid" src="<?php echo base_url('assets/front/') ?>images/team/01.png" alt="">
-              </div>
-              <div class="team-description">
-                <h5><a href="team-single.html">Fırat KILINÇ</a></h5>
-                <span>Yazar</span> 
-              </div>
-              <ul class="team-social-icon list-inline">
-                <li><a href="#"><i class="lab la-facebook-f"></i></a>
-                </li>
-                <li><a href="#"><i class="lab la-twitter"></i></a>
-                </li>
-                <li><a href="#"><i class="lab la-pinterest-p"></i></a>
-                </li>
-                <li><a href="#"><i class="lab la-linkedin-in"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-6 mt-5 mt-sm-0">
-            <div class="team-member">
-              <div class="team-images">
-                <img class="img-fluid" src="<?php echo base_url('assets/front/') ?>images/team/02.png" alt="">
-              </div>
-              <div class="team-description">
-                <h5><a href="team-single.html">Melih YILMAZ</a></h5>
-                <span>Yazar</span> 
-              </div>
-              <ul class="team-social-icon list-inline">
-                <li><a href="#"><i class="lab la-facebook-f"></i></a>
-                </li>
-                <li><a href="#"><i class="lab la-twitter"></i></a>
-                </li>
-                <li><a href="#"><i class="lab la-pinterest-p"></i></a>
-                </li>
-                <li><a href="#"><i class="lab la-linkedin-in"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          
+          
+          
+		  <?php foreach ($our_teams as $our_team){ ?>
           <div class="col-sm-6 mt-5">
             <div class="team-member">
               <div class="team-images">
-                <img class="img-fluid" src="<?php echo base_url('assets/front/') ?>images/team/03.png" alt="">
+                <img class="img-fluid" src="<?php echo get_picture("admin/teams_v",$our_team->img_url, "900x600"); ?>" alt="">
               </div>
               <div class="team-description">
-                <h5><a href="team-single.html">Fırat SADIKOĞLU</a></h5>
-                <span>Yazar</span> 
+                <h5><?php echo $our_team->name; ?></h5>
+                <span><?php echo $our_team->role;?></span> 
               </div>
               <ul class="team-social-icon list-inline">
                 <li><a href="#"><i class="lab la-facebook-f"></i></a>
@@ -136,27 +98,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-sm-6 mt-5">
-            <div class="team-member">
-              <div class="team-images">
-                <img class="img-fluid" src="<?php echo base_url('assets/front/') ?>images/team/04.png" alt="">
-              </div>
-              <div class="team-description">
-                <h5><a href="team-single.html">Abdulkerim ATAŞ</a></h5>
-                <span>Yazar</span> 
-              </div>
-              <ul class="team-social-icon list-inline">
-                <li><a href="#"><i class="lab la-facebook-f"></i></a>
-                </li>
-                <li><a href="#"><i class="lab la-twitter"></i></a>
-                </li>
-                <li><a href="#"><i class="lab la-pinterest-p"></i></a>
-                </li>
-                <li><a href="#"><i class="lab la-linkedin-in"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
+		  <?php } ?>
         </div>
       </div>
     </div>

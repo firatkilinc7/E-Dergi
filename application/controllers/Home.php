@@ -76,10 +76,7 @@ class Home extends MY_Controller {
 			)
 		);
 		
-		
-		
-		
-		
+		//YAZILARIN COOKIE YARDIMIYLA GORUNTULENMESI
 		$post_id = $viewData->blog->id;
 		$post_view = $viewData->blog->viewCount;
 		
@@ -112,13 +109,6 @@ class Home extends MY_Controller {
         );
 		$update = $this->blogs_model->update(array("id" => $post_id), $data_count);
 		
-		
-		
-		
-		
-		
-		
-		
 		if ( empty( $viewData->blog ) === true ){
 			$viewData = new stdClass();
 			$viewData->viewFolder = "page_404";
@@ -140,10 +130,18 @@ class Home extends MY_Controller {
 
 	public function about_us(){
 
+			$this->load->model("our_teams_model");
+			$our_teams = $this->our_teams_model->get_all(
+				array(
+					"isActive"  => 1, "rank ASC"
+				),
+			);
+			
 			$viewData = new stdClass();
 			$viewData->viewFolder = "about_us_v";
 			$viewData->frontViewFolder = "front";
 
+			$viewData->our_teams = $our_teams;
 
 			$this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}", $viewData);
 
