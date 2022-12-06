@@ -214,7 +214,7 @@ Pre Loader
   left: 0;
   width: 100%;
   z-index: 999 !important;
-  background: #ffffff;
+  background: #181a27;
   animation: smoothScroll 1s forwards;
 }
 
@@ -292,8 +292,8 @@ Pre Loader
   }
 
   .nav-link.dropdown-toggle::after {
-    border: solid #102e46;
-    border-width: 0 1px 1px 0;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
     width: 0.425rem;
     height: 0.425rem;
     transform: rotate(45deg);
