@@ -1,11 +1,32 @@
-<?php $user_permission = get_user_permission()?>
+<?php 
+	$users = get_all_users();
+	$user_permission = get_user_permission();
+?>
 <section class="panel">
     <header class="panel-heading">
 		<a href="<?php echo base_url("blogs/new_form"); ?>" class="btn btn-outline btn-primary btn-xs pull-right"> <i class="fa fa-plus"></i> Yeni Ekle</a>
         <h2 class="panel-title">Blog Listesi</h2>
     </header>
+	
     <div class="panel-body">
-
+	
+        <?php if($user_permission > 2){ ?>
+		<div class="form-group row-md-4">
+        <label class="col-md-2 mt-sm" style="max-width: fit-content">Kullanıcı: </label>
+			<div class="col">
+				<select name="type_filter" onchange="funtion()" id="author_filter" >
+				
+					<option value="all">Hepsi</option>
+					
+					<?php foreach ($users as $user){ ?>
+						<option <?php echo $author == $user->user_name ? "selected" : "" ?> value="<?php echo $user->user_name?>"><?php echo $user->user_name?></option>
+					<?php } ?>
+				
+				</select>
+			</div>
+		</div>
+		<?php } ?>
+		
         <?php if(empty($items)) { ?>
             <div class="alert alert-info text-center">
                 <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php echo base_url("blogs/new_form"); ?>">tıklayınız</a></p>
@@ -25,7 +46,6 @@
 						<th>Yazar</th>
 						<th>Görsel</th>
 						<th>Durumu</th>
-						
 						<th>İşlem</th>
 					</thead>
 					<tbody class="sortable" data-url="<?php echo base_url("blogs/rankSetter"); ?>">
@@ -79,3 +99,17 @@
 		<?php }?>
 	</div>
 </section>
+
+<script>
+	function funtion(){
+
+		var select = document.getElementById("author_filter");
+		var selvalue = select.value;
+		alert(selvalue);
+		window.location.replace(<?php echo "\"".base_url("blogs/filter")."/\"" ?> + selvalue);
+	}
+	
+</script>
+
+
+"blogs/filter/"+ selvalue

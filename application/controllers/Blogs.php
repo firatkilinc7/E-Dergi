@@ -19,9 +19,10 @@ class Blogs extends CI_Controller
 
     }
 
-    public function index(){
+    public function index($author=""){
 
         $viewData = new stdClass();
+		
 		
 		if(get_user_permission() < 3){
 			
@@ -32,14 +33,27 @@ class Blogs extends CI_Controller
 			);	
 		}else{
 
-			$items = $this->blogs_model->get_all(
-				array(), "rank ASC"
-			);		
+			if($author == ""){
+			
+				$items = $this->blogs_model->get_all(
+					array(), "rank ASC"
+				);		
+			}else{
+				
+				$items = $this->blogs_model->get_all(
+					array(
+						"author"  => $author
+					)
+				);
+			}
+		
+		
 		}
 
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "list";
         $viewData->frontViewFolder = "admin";
+		$viewData->author = $author;
         $viewData->items = $items;
 
         $this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);

@@ -31,6 +31,7 @@ $route['default_controller'] = 'home';
 
 	//Blog Bölümü
 	$route["blogs/(:any)"]                   = "blogs/$1";
+	$route["blogs/filter/(:any)"]            = "blogs/index/$1";
 
 
 	//Settings & E-Mail Bölümü
