@@ -195,5 +195,22 @@
 		
 		return $articles;
 	}
+	
+	function send_telegram_message($message){
+		
+		$token = "5596855803:AAFd1GmLCVWkhoVOSpUIe8IayiO0p4Gm7tA";
+		
+		$data = array(
+			
+			"text"    => $message,
+			"chat_id" => "-884702976"
+			
+		);
+		
+		file_get_contents("https://api.telegram.org/bot$token/sendMessage?" . http_build_query($data)."&parse_mode=html" );
+		
+	
+	}
+	
 
 ?>
