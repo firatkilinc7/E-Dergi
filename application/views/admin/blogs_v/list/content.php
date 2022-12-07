@@ -12,18 +12,28 @@
 	
         <?php if($user_permission > 2){ ?>
 		<div class="form-group row-md-4">
-        <label class="col-md-2 mt-sm" style="max-width: fit-content">Kullanıcı: </label>
+			<label class="col-md-2 mt-sm" style="max-width: fit-content">Kullanıcı: </label>
 			<div class="col">
-				<select name="type_filter" onchange="funtion()" id="author_filter" >
+				<select name="type_filter" onchange="filter_user()" id="author_filter" >
 				
 					<option value="all">Hepsi</option>
 					
 					<?php foreach ($users as $user){ ?>
-						<option <?php echo $author == $user->user_name ? "selected" : "" ?> value="<?php echo $user->user_name?>"><?php echo $user->user_name?></option>
+						<option <?php echo $parametr == $user->user_name ? "selected" : "" ?> value="<?php echo $user->user_name?>"><?php echo $user->user_name?></option>
 					<?php } ?>
 				
 				</select>
+				
+				<label class="col-md-0 mt-sm ml-sm mr-sm" style="max-width: fit-content">Onay Durumu: </label>
+				<select name="type_filter" onchange="filter_status()" id="status_filter" >
+				
+					<option value="all">Hepsi</option>
+					<option value="1" <?php echo $parametr == "1" ? "selected" : "" ?> >Onaylandı</option>
+					<option value="0" <?php echo $parametr == "0" ? "selected" : "" ?> >Onay Bekliyor</option>
+				
+				</select>
 			</div>
+			
 		</div>
 		<?php } ?>
 		
@@ -101,15 +111,28 @@
 </section>
 
 <script>
-	function funtion(){
+	function filter_user(){
 
 		var select = document.getElementById("author_filter");
 		var selvalue = select.value;
 		alert(selvalue);
-		window.location.replace(<?php echo "\"".base_url("blogs/filter")."/\"" ?> + selvalue);
+		if(selvalue=="all"){
+			window.location.replace(<?php echo "\"".base_url("blogs")."/\"" ?>);
+		}else{
+			window.location.replace(<?php echo "\"".base_url("blogs/filter")."/\"" ?> + selvalue);
+		}
+	}
+	
+	function filter_status(){
+
+		var select = document.getElementById("status_filter");
+		var selvalue = select.value;
+		alert(selvalue);
+		if(selvalue=="all"){
+			window.location.replace(<?php echo "\"".base_url("blogs")."/\"" ?>);
+		}else{
+			window.location.replace(<?php echo "\"".base_url("blogs/filter")."/\"" ?> + selvalue);
+		}
 	}
 	
 </script>
-
-
-"blogs/filter/"+ selvalue

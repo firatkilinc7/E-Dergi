@@ -19,7 +19,7 @@ class Blogs extends CI_Controller
 
     }
 
-    public function index($author=""){
+    public function index($parametr=""){
 
         $viewData = new stdClass();
 		
@@ -33,18 +33,27 @@ class Blogs extends CI_Controller
 			);	
 		}else{
 
-			if($author == ""){
+			if($parametr == ""){
 			
 				$items = $this->blogs_model->get_all(
 					array(), "rank ASC"
 				);		
 			}else{
 				
-				$items = $this->blogs_model->get_all(
-					array(
-						"author"  => $author
-					)
-				);
+				if($parametr == 0 or $parametr == 1){
+					$items = $this->blogs_model->get_all(
+						array(
+							"isActive"  => $parametr
+						)
+					);
+				}else{
+				
+					$items = $this->blogs_model->get_all(
+						array(
+							"author"  => $parametr
+						)
+					);
+				}
 			}
 		
 		
@@ -53,7 +62,7 @@ class Blogs extends CI_Controller
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "list";
         $viewData->frontViewFolder = "admin";
-		$viewData->author = $author;
+		$viewData->parametr = $parametr;
         $viewData->items = $items;
 
         $this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
@@ -177,6 +186,14 @@ class Blogs extends CI_Controller
                         "text" => "Kayıt başarılı bir şekilde eklendi",
                         "type"  => "success"
                     );
+					
+					if(get_user_permission() == 1){
+						
+						$message = "\"<b>".get_user_name()."</b>\" adlı kullanıcı \"<b>".$this->input->post("title")."</b>\" adında yeni bir yazı ekledi ve onay bekliyor. Bilgilerinize sunar, iyi günler dilerim.";
+					
+						send_telegram_message($message);
+						
+					}
 
                 } else {
 
