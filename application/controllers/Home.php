@@ -118,7 +118,11 @@ class Home extends MY_Controller {
 		}
 		
 		$items = $this->blogs_model->get_all(
-            array(), "createdAt desc"
+            array(
+			
+				"isActive" => 1,
+			
+			), "createdAt desc"
         );
 		
 		$viewData->items = $items;
@@ -146,7 +150,39 @@ class Home extends MY_Controller {
 			$this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}", $viewData);
 
 		}
+	
+	public function blogs(){
+		
+		$this->load->model("blogs_model");
+		
+		$blogs = $this->blogs_model->get_all(
+            array(
+				
+				"isActive" => 1,
+				
+			), "createdAt DESC"
+        );
+		
+		$items = $this->blogs_model->get_all(
+            array(
+			
+				"isActive" => 1,
+			
+			), "createdAt desc"
+        );
+		
+		
+		
+		$viewData = new stdClass();
+		$viewData->viewFolder = "blog_list_v";
+		$viewData->frontViewFolder = "front";
+		$viewData->items = $items;
+		$viewData->blogs = $blogs;
 
+		$this->load->view("{$viewData->frontViewFolder}/{$viewData->viewFolder}", $viewData);
+		
+	}
+	
 }
 	
 	

@@ -49,4 +49,5 @@ $route['default_controller'] = 'home';
 	$route["hakkimizda"]                 = "home/about_us";
 	
 	//YAZILAR
+	$route["yazilar"]          = "home/blogs/";
 	$route["yazilar/(:any)"]   = "home/blog_detail/$1";
