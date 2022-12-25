@@ -53,6 +53,20 @@
 				</ul>
 			</nav>
 			
+			<hr class="separator" />
+				
+				<div class="sidebar-widget widget-tasks">
+					<div class="widget-header">
+						<h6>Ana Sayfa</h6>
+						<div class="widget-toggle">+</div>
+					</div>
+					<div class="widget-content">
+						<ul class="list-unstyled m-none">
+							<li><a href="<?php echo base_url(); ?>">Web Sitesine Git</a></li>
+						</ul>
+					</div>
+				</div>
+			
 			
 		</div>
 		

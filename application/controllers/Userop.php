@@ -35,7 +35,7 @@ class Userop extends CI_Controller {
 
 		$this->load->library('session');
 		$this->session->unset_userdata("user");
-		redirect(base_url("login"));
+		redirect(base_url("/"));
 
 	}
 
@@ -94,7 +94,7 @@ class Userop extends CI_Controller {
 				$this->session->set_userdata("user", $user);
 				$this->session->set_flashdata("alert", $alert);
 
-				redirect('Dashboard');
+				redirect('/');
 
 			} else {
 

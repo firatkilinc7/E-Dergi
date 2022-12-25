@@ -46,7 +46,30 @@
                 </li>
          
                 <li class="nav-item"> <a class="nav-link" id="iletisim" href="<?php echo base_url("iletisim") ;?>">İletişim</a></li>
-
+				
+				<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" id="blogs" href="#" data-bs-toggle="dropdown">Hesap</a>
+					
+					<ul class="dropdown-menu">
+					
+						<?php if(get_active_user()){ ?>
+						
+						<li><a href="<?php echo base_url("dashboard");?>">Panele Git</a></li>
+						<li><a href="<?php echo base_url("profile");?>">Profilim</a></li>
+						<li><a href="<?php echo base_url("blogs");?>">Yazılarım</a></li>
+						<li><a href="<?php echo base_url("logout");?>">Çıkış Yap</a></li>
+						
+						<?php }else{ ?>
+					
+						<li><a href="<?php echo base_url("login");?>">Giriş Yap</a></li>
+						<li><a href="<?php echo base_url("register");?>">Kayıt Ol</a></li>
+						
+						<?php } ?>
+					
+					</ul>
+					
+				</li>
+				
+				
               </ul>
             </div>
             

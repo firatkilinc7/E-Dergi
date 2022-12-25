@@ -11,7 +11,7 @@
         <div class="form-group">
           <label class="col-md-2 control-label">Blog Adı</label>
           <div class="col-md-10">
-           <input class="form-control" placeholder="Makale Adı" name="title">
+           <input class="form-control" placeholder="Blog Adı" name="title">
            <?php if(isset($form_error)){ ?>
              <small class="pull-right input-form-error"> <?php echo form_error("title"); ?></small>
            <?php } ?>
