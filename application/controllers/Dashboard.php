@@ -44,7 +44,6 @@ class Dashboard extends CI_Controller {
 			
 			$blog_array_deactive = array(
 				"isActive"  => 0,
-				"author"    => get_user_name()
 			);
 		}
 		

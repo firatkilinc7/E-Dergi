@@ -66,8 +66,8 @@ button:focus { outline: none; }
     Team
 ------------------------*/
 .team-member { position: relative; margin-bottom: 30px; }
-.team-member .team-description { position: absolute; bottom: -30px; background: #ffffff; padding: 15px 25px; right: 0; border-radius: .25rem; }
-.team-social-icon { width: 90px; -webkit-transform: scale(0); -ms-transform: scale(0); transform: scale(0); opacity: 0; visibility: hidden; -webkit-transition: all 0.8s ease-in-out; transition: all 0.8s ease-in-out; position: absolute; left: 50%; top: 5rem; z-index: 2; margin-left: -45px; }
+.team-member .team-description { position: absolute; bottom: -45px; background: #ffffff; padding: 15px 25px; right: 0; border-radius: .25rem; }
+.team-social-icon { width: 90px; -webkit-transform: scale(0); -ms-transform: scale(0); transform: scale(0); opacity: 0; visibility: hidden; -webkit-transition: all 0.8s ease-in-out; transition: all 0.8s ease-in-out; position: absolute; left: 50%; top: 3rem; z-index: 2; margin-left: -45px; }
 .team-member:hover .team-social-icon { opacity: 1; visibility: visible; -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); }
 .team-member .team-description h5 { margin-bottom: 5px; text-transform: capitalize; font-weight: 500; color: #42454b; }
 .team-member .team-description h5 a:hover { color: #0049d0 }
@@ -75,7 +75,7 @@ button:focus { outline: none; }
 .team-social-icon li { float: left; margin: 0 1px 1px 0; }
 .team-social-icon li a { background: #ffffff; font-size: 20px; height: 40px; width: 40px; line-height: 40px; color: #42454b; border-radius: .25rem; display: inline-block; text-align: center; }
 .team-social-icon li a:hover, .team-member.style-2 .team-social-icon li a:hover { background: #102e46; color: #ffffff; }
-.team-images img { width: 100%; border-radius: 50% 20% 50% 50%; }
+.team-images img { width: 100%; border-radius: 19%; }
 .team-images { position: relative; }
 .team-member:hover .team-images img, .team-member.style-2.active .team-images img { border-radius: 50%; }
 .team-member .team-images:before { transform: scale(0); opacity: 0; border-radius: 100%; content: ""; background: #0049d0; position: absolute; left: 0; top: 0; width: 100%; height: 100%; }

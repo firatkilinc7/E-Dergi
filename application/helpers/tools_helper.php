@@ -190,7 +190,11 @@
 		$t->load->model("blogs_model");
 		
 		$articles = $t->blogs_model->get_all(
-            array(), "viewCount DESC"
+            array(
+				
+				"isActive" => 1,
+				
+			), "viewCount DESC"
         );
 		
 		return $articles;

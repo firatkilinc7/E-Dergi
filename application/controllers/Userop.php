@@ -320,6 +320,9 @@ class Userop extends CI_Controller {
                         "type"  => "success"
                     );
 					
+					$message = "\"".$this->input->post("user_name")."\" adlı kullanıcı kayıt olmuştur. Bilgilerinize sunar, iyi günler dilerim.";
+					
+					send_telegram_message($message);
 
                 } else {
 

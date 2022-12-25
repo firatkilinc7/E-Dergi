@@ -32,11 +32,15 @@
           <img class="rounded img-fluid" src="<?php echo get_picture("admin/blogs_v",$blog->img_url, "1920x1080"); ?>" alt="<?php echo $blog->title ?>">
           <div class="card-body pt-4 pb-0 px-0">
             <ul class="list-inline">
-              <li class="list-inline-item"> <a href="#" class="text-grey"><i class="lar la-user-circle me-1"></i> <?php echo get_users_full_name($blog->author) ?></a>
+            
+			  <li class="list-inline-item"> <a href="#" class="text-grey"><i class="lar la-user-circle me-1"></i> <?php echo get_users_full_name($blog->author) ?></a>
               </li>
-              <li class="list-inline-item"> <a href="#" class="text-grey"><i class="las la-calendar-alt me-1"></i> <?php echo date("d-m-yy",strtotime($blog->createdAt)) ?></a>
+              <li class="list-inline-item"> <a href="#" class="text-grey"><i class="las la-calendar-alt me-1"></i> <?php echo date("d-m-Y",strtotime($blog->createdAt)) ?></a>
               </li>
-            </ul>
+			  <li class="list-inline-item"> <a href="<?php echo base_url("makale/$blog->url") ?>" class="text-grey"><i class="las la-eye me-1"></i> <?php echo $blog->viewCount ?></a>
+			  </li>
+            
+			</ul>
             <h2 class="mt-3 mb-0 font-w-5"><?php echo $blog->title ?>
               </h2>
           </div>
