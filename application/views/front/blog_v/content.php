@@ -4,12 +4,12 @@
 		<div class="row">
             <div class="col-lg-8">
                 <div class="bg-white p-md-5 p-3 d-inline-block">
-                  <h1 class="font-w-3 mb-4"><span class="text-primary font-w-5" style="color: #fadd01 !important"><?php echo $blog->title ?></h1>
+                  <h1 class="font-w-3 mb-4"><span class="text-primary font-w-5 secondary-color"><?php echo $blog->title ?></h1>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="<?php echo base_url() ?>"><i class="las la-home me-1"></i>Ana Sayfa</a>
 							</li>
-							<li class="breadcrumb-item active" aria-current="page" style="color: #fadd01 !important">Makalelerimiz</li>
+							<li class="breadcrumb-item active secondary-color" aria-current="page">Makalelerimiz</li>
 						</ol>
 					</nav>
 				</div>
@@ -33,11 +33,11 @@
           <div class="card-body pt-4 pb-0 px-0">
             <ul class="list-inline">
             
-			  <li class="list-inline-item"> <a href="#" class="text-grey"><i class="lar la-user-circle me-1"></i> <?php echo get_users_full_name($blog->author) ?></a>
+			  <li class="list-inline-item"> <a href="#" class="text-grey secondary-color-hover"><i class="lar la-user-circle me-1"></i> <?php echo get_users_full_name($blog->author) ?></a>
               </li>
-              <li class="list-inline-item"> <a href="#" class="text-grey"><i class="las la-calendar-alt me-1"></i> <?php echo date("d-m-Y",strtotime($blog->createdAt)) ?></a>
+              <li class="list-inline-item"> <a href="#" class="text-grey secondary-color-hover"><i class="las la-calendar-alt me-1"></i> <?php echo date("d-m-Y",strtotime($blog->createdAt)) ?></a>
               </li>
-			  <li class="list-inline-item"> <a href="<?php echo base_url("makale/$blog->url") ?>" class="text-grey"><i class="las la-eye me-1"></i> <?php echo $blog->viewCount ?></a>
+			  <li class="list-inline-item"> <a href="<?php echo base_url("makale/$blog->url") ?>" class="text-grey secondary-color-hover"><i class="las la-eye me-1"></i> <?php echo $blog->viewCount ?></a>
 			  </li>
             
 			</ul>
@@ -52,12 +52,12 @@
         <div class="box-shadow rounded p-5 mb-5">
           <div class="sidebar-links">
             <ul class="list-unstyled">
-				<h4 class="text-primary" style="color: #fadd01 !important">Yazılar</h4>
+				<h4 class="text-primary secondary-color">Yazılar</h4>
 			 
 				<?php $blogSayisi = 0; ?>
 				<?php foreach ($items as $item){ ;?>
 					<?php $blogSayisi++;?>
-					<li class=""><a href="<?php echo base_url("yazilar/$item->url") ?>"><span class="link-icon link-arrow"></span> <p class="link-text"><?php echo $item->title ;?></p></a>
+					<li class=""><a class="secondary-background-color-hover primary-background-color-before" href="<?php echo base_url("yazilar/$item->url") ?>"><span class="link-icon link-arrow"></span> <p class="link-text"><?php echo $item->title ;?></p></a>
 					</li>
 					<?php if($blogSayisi === 8){
 						break;
@@ -70,15 +70,12 @@
         </div>
    
         <div class="box-shadow rounded p-5">
-          <h4 class="text-primary" style="color: #fadd01 !important">Aramıza katılın!</h4>
-          <p>Hemen üye olarak ilk yazınızı paylaşın.</p> <a class="btn btn-primary" style="background-color: #fadd01 !important; border-color: #fadd01 !important;" href="<?php echo base_url("register")?>"><span>Üye Ol</span></a>
+          <h4 class="text-primary secondary-color">Aramıza katılın!</h4>
+          <p>Hemen üye olarak ilk yazınızı paylaşın.</p> <a class="btn btn-primary secondary-background-color primary-background-color-before" href="<?php echo base_url("register")?>"><span>Üye Ol</span></a>
         </div>
       </div>
 	  
 	  <style>
-		.list-unstyled>li>a:hover:before{
-			background: #fadd01 !important
-		}
 		.col-lg-10{
 			width: 66% !important;
 		}
@@ -89,14 +86,3 @@
     </div>
   </div>
 </section>
-
-<style>
-	.list-inline-item>a:hover{
-		color: #fadd01 !important
-	}
-	
-	.col-lg-10>p>a{
-		color: #fadd01 !important;
-	}
-</style>
-

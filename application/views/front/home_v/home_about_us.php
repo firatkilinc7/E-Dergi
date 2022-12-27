@@ -9,12 +9,12 @@
       </div>
       <div class="col-12 col-lg-6">
         <h1 class="mb-4">
-            Her Yazının Bir<span class="font-w-6 px-2 text-primary my-2 d-inline-block" style="color: #fadd01 !important;">Yazarı,
-			</span> Her Yazarın Bir <span class="font-w-6 px-2 text-primary my-2 d-inline-block" style="color: #fadd01 !important;">Derdi</span> Vardır.        
+            Her Yazının Bir<span class="font-w-6 px-2 text-primary my-2 d-inline-block secondary-color">Yazarı,
+			</span> Her Yazarın Bir <span class="font-w-6 px-2 text-primary my-2 d-inline-block secondary-color">Derdi</span> Vardır.        
         </h1>
         <p class="lead mb-5 text-grey">Bir insanın sağlıklı oluşu kalem tutuşuyla belli olur.</p>
-        <a href="<?php echo base_url("register")?>" class="btn btn-dark me-2">Hemen Aramıza Katıl!</a>
-        <a href="<?php echo base_url("iletisim")?>" class="btn btn-white ">İletişim</a>
+        <a href="<?php echo base_url("register")?>" class="btn btn-dark me-2 secondary-background-color-before primary-background-color">Hemen Aramıza Katıl!</a>
+        <a href="<?php echo base_url("iletisim")?>" class="btn btn-white secondary-background-color-before">İletişim</a>
       </div>
     </div>
   </div>

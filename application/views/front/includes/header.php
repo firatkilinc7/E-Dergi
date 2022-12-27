@@ -1,6 +1,7 @@
+<?php $settings = get_settings(); ?>
 <!--header start-->
 <header id="site-header" class="header">
-    <div id="header-wrap">
+    <div id="header-wrap" class="primary-background-color">
       <div class="container">
         <div class="row">
           <div class="col">
@@ -16,15 +17,15 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto"><?php  ;?>
                 <!-- Home -->
-                <li class="nav-item"> <a class="nav-link" id="ana-sayfa" href="<?php echo base_url() ;?>">Ana Sayfa</a></li>
-                <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" id="biz-kimiz" href="#" data-bs-toggle="dropdown">Biz Kimiz</a>
+                <li class="nav-item"> <a class="nav-link secondary-color" id="ana-sayfa" href="<?php echo base_url() ;?>">Ana Sayfa</a></li>
+                <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle secondary-color" id="biz-kimiz" href="#" data-bs-toggle="dropdown">Biz Kimiz</a>
 					<ul class="dropdown-menu">
 						<li><a href="<?php echo base_url("hakkimizda") ?>">Hakkımızda</a></li>
 					</ul>
 				</li>            
                 
 				
-                <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" id="blogs" href="#" data-bs-toggle="dropdown">Yazılarımız</a>
+                <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle secondary-color" id="blogs" href="#" data-bs-toggle="dropdown">Yazılarımız</a>
 					
 					  <ul class="dropdown-menu">
 						<?php 
@@ -45,9 +46,9 @@
 					  </ul>
                 </li>
          
-                <li class="nav-item"> <a class="nav-link" id="iletisim" href="<?php echo base_url("iletisim") ;?>">İletişim</a></li>
+                <li class="nav-item"> <a class="nav-link secondary-color" id="iletisim" href="<?php echo base_url("iletisim") ;?>">İletişim</a></li>
 				
-				<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" id="blogs" href="#" data-bs-toggle="dropdown">Hesap</a>
+				<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle secondary-color" id="blogs" href="#" data-bs-toggle="dropdown">Hesap</a>
 					
 					<ul class="dropdown-menu">
 					
@@ -79,5 +80,47 @@
     </div>
   </div>
 </header>
+
+
+<style>
+
+	.primary-background-color{
+		background-color: <?php echo $settings->primary_color; ?> !important;
+	}
+	.primary-color{
+		color: <?php echo $settings->primary_color; ?> !important;
+	}
+	.primary-background-color-hover:hover{
+		background-color: <?php echo $settings->primary_color; ?> !important;
+	}
+	.primary-color-hover:hover{
+		color: <?php echo $settings->primary_color; ?> !important;
+	}
+	.primary-background-color-before:before{
+		background-color: <?php echo $settings->primary_color; ?> !important;
+	}
+	.primary-color-before:before{
+		color: <?php echo $settings->primary_color; ?> !important;
+	}
+	
+	.secondary-background-color{
+		background-color: <?php echo $settings->secondary_color; ?> !important;
+	}
+	.secondary-color{
+		color: <?php echo $settings->secondary_color; ?> !important;
+	}
+	.secondary-background-color-hover:hover{
+		background-color: <?php echo $settings->secondary_color; ?> !important;
+	}
+	.secondary-color-hover:hover{
+		color: <?php echo $settings->secondary_color; ?> !important;
+	}
+	.secondary-background-color-before:before{
+		background-color: <?php echo $settings->secondary_color; ?> !important;
+	}
+	.secondary-color-before:before{
+		color: <?php echo $settings->secondary_color; ?> !important;
+	}
+</style>
 
 <!--header end-->

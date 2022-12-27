@@ -14,6 +14,7 @@
 				<li class=""><a href="#about_us" data-toggle="tab" aria-expanded="false">Hakkımızda</a></li>
 				<li class=""><a href="#social_media" data-toggle="tab" aria-expanded="false">Sosyal Medya</a></li>
 				<li class=""><a href="#logos" data-toggle="tab" aria-expanded="false">Logo</a></li>
+				<li class=""><a href="#colors" data-toggle="tab" aria-expanded="false">Renkler</a></li>
 
 			</ul>
 			<div class="tab-content">
@@ -26,6 +27,8 @@
 				<?php $this->load->view("{$frontViewFolder}/$viewFolder/$subViewFolder/tabs/social_media"); ?>
 
 				<?php $this->load->view("{$frontViewFolder}/$viewFolder/$subViewFolder/tabs/logo"); ?>
+				
+				<?php $this->load->view("{$frontViewFolder}/$viewFolder/$subViewFolder/tabs/colors"); ?>
 
 
 			</div>

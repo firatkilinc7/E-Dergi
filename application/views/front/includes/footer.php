@@ -18,16 +18,16 @@
           <div class="social-icons social-colored footer-social">
             <ul class="list-inline">
               <?php if($settings->facebook <> null){ ;?>
-              <li><a href="<?php echo $settings->facebook ?>"><i class="lab la-facebook-f"></i></a></li>
+              <li><a href="<?php echo $settings->facebook ?>"><i class="lab la-facebook-f secondary-color"></i></a></li>
               <?php } ;?>
               <?php if($settings->youtube <> null){ ;?>
-              <li><a href="<?php echo $settings->youtube ?>"><i class="lab la-youtube"></i></a></li>
+              <li><a href="<?php echo $settings->youtube ?>"><i class="lab la-youtube secondary-color"></i></a></li>
               <?php } ;?>
               <?php if($settings->instagram <> null){ ;?>
-              <li><a href="<?php echo $settings->instagram ?>"><i class="lab la-instagram"></i></a></li>
+              <li><a href="<?php echo $settings->instagram ?>"><i class="lab la-instagram secondary-color"></i></a></li>
               <?php } ;?>             
               <?php if($settings->linkedin <> null){ ;?>
-              <li><a href="<?php echo $settings->linkedin ?>"><i class="lab la-linkedin-in"></i></a></li>
+              <li><a href="<?php echo $settings->linkedin ?>"><i class="lab la-linkedin-in secondary-color"></i></a></li>
               <?php } ;?>
             </ul>
           </div>
@@ -64,12 +64,12 @@
         <div class="col-12 col-lg-6 col-xl-4 mt-6 mt-xl-0">
           <h5 class="mb-4 text-white">İletişim</h5>
           <ul class="media-icon list-unstyled font-w-5">
-              <li> <i class="las la-map-pin" style="padding-right: 8px; padding-left: 8px; color: #16171c !important;"></i>
+              <li> <i class="las la-map-pin secondary-color" style="padding-right: 8px; padding-left: 8px;"></i>
                 <p class="mb-0 text-rgba"><?php echo strip_tags($settings->address) ;?></p>
               </li>
-              <li><i class="las la-envelope-open-text" style="color: #16171c !important;"></i>  <a href="mailto:<?php echo $settings->email ;?>"><?php echo $settings->email ;?></a>
+              <li><i class="las la-envelope-open-text secondary-color"></i>  <a href="mailto:<?php echo $settings->email ;?>"><?php echo $settings->email ;?></a>
               </li>
-              <li><i class="las la-phone-volume" style="color: #16171c !important;"></i>  <a href="tel:+<?php echo $settings->phone_1 ;?>"><?php echo $settings->phone_1 ;?></a>
+              <li><i class="las la-phone-volume secondary-color"></i>  <a href="tel:+<?php echo $settings->phone_1 ;?>"><?php echo $settings->phone_1 ;?></a>
               </li>
             </ul>
         </div>

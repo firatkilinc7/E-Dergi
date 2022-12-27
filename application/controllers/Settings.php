@@ -73,7 +73,6 @@ class Settings extends CI_Controller
 
         if($validate){
 
-
             $data = array(
                 "company_name"     => $this->input->post("company_name"),
                 "phone_1"          => $this->input->post("phone_1"),
@@ -90,6 +89,8 @@ class Settings extends CI_Controller
                 "youtube"          => $this->input->post("youtube"),
                 "instagram"        => $this->input->post("instagram"),
                 "linkedin"         => $this->input->post("linkedin"),
+                "primary_color"    => $this->input->post("primary_color"),
+                "secondary_color"  => $this->input->post("secondary_color"),
                 "updatedAt"        => date("Y-m-d H:i:s")
             );
 

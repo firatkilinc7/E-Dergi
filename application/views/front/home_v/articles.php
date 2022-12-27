@@ -5,7 +5,7 @@
     <div class="row justify-content-center text-center">
       <div class="col-12 col-lg-8">
         <div class="mb-5">
-          <h6 class="font-w-5 mb-3 position-relative py-1 px-3 text-primary rounded subtitle-effect box-shadow d-inline-block" style="background-color: #fadd01 !important; color: white !important;">
+          <h6 class="font-w-5 mb-3 position-relative py-1 px-3 text-primary rounded subtitle-effect box-shadow d-inline-block secondary-background-color primary-color">
             <span>Değerli Yazarlarımızdan</span>
               </h6>
           <h2 class="mb-0"><span class="font-w-5 d-block">Seçme Yazılar</span></h2>
@@ -23,7 +23,7 @@
               </div>
               <div class="featured-desc mt-4">
                 <h5 class="mb-3"><?php echo $article->title?></h5>
-                <p class="mb-0"><?php echo "Yazar: ".$article->author?></p> <a class="btn-link mt-4" href="yazilar/<?php echo $article->url ?>"><i class="las la-long-arrow-alt-right"></i></a>
+                <p class="mb-0"><?php echo "Yazar: ".$article->author?></p> <a class="btn-link mt-4 secondary-background-color-hover" href="yazilar/<?php echo $article->url ?>"><i class="las la-long-arrow-alt-right"></i></a>
               </div>
             </div>
           </div>
