@@ -72,7 +72,24 @@
 				
 				
               </ul>
-            </div>
+				<li><label class="secondary-color" style="margin-right: 1.2rem;">Party Mode</label></li>
+				<ul class="navbar-nav">
+					
+					<div class="switch switch-success">
+						<input
+							data-url="<?php echo base_url("home/party_mode/$settings->party_mode"); ?>"
+							class="isActive"
+							type="checkbox"
+							name="switch"
+							id="party-mode"
+							data-plugin-ios-switch
+							<?php echo ($settings->party_mode) ? "checked" : ""; ?> 
+						/>
+					</div>
+					
+				</ul>
+			
+			</div>
             
           </nav>
         </div>
@@ -122,5 +139,9 @@
 		color: <?php echo $settings->secondary_color; ?> !important;
 	}
 </style>
+
+
+
+
 
 <!--header end-->

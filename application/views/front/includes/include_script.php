@@ -38,6 +38,16 @@
 
 <!-- inject js end -->
 
+<script src="<?php echo base_url('assets/admin/'); ?>vendor/ios7-switch/ios7-switch.js"></script>
+
+<script src="<?php echo base_url('assets/admin/'); ?>javascripts/theme.custom.js"></script>
+
+<script src="<?php echo base_url('assets/admin/'); ?>vendor/nanoscroller/nanoscroller.js"></script>
+<script src="<?php echo base_url('assets/admin/'); ?>javascripts/theme.js"></script>
+<script src="<?php echo base_url('assets/admin/'); ?>javascripts/theme.init.js"></script>
+
+<script src="<?php echo base_url('assets/admin/'); ?>vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
+
 <style>
 	a.smoothscroll:hover{
 		background: #fadd01 !important;

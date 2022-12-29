@@ -183,6 +183,18 @@ class Home extends MY_Controller {
 		
 	}
 	
+	public function party_mode($mode){
+
+		$this->load->model("settings_model");
+		
+			
+			$data = array(
+                "party_mode"  => $mode ? "0" : "1",
+            );
+			$update = $this->settings_model->update(array("id" => "4"), $data);
+		
+	}
+	
 }
 	
 	

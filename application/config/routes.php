@@ -51,3 +51,8 @@ $route['default_controller'] = 'home';
 	//YAZILAR
 	$route["yazilar"]          = "home/blogs/";
 	$route["yazilar/(:any)"]   = "home/blog_detail/$1";
+	
+	$route["party-mode/"]   = "home/party_mode";
+	$route["party-mode/(:any)"]   = "home/party_mode/$1";
+	
+	

@@ -454,35 +454,16 @@ $config['csrf_cookie_name'] = 'csrf_cm5_51t3_c00k13';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = FALSE;
 $config['csrf_exclude_uris'] = array(
-	'slides/isActiveSetter/[0-9]+',
-	'slides/rankSetter+',
-	'brands/isActiveSetter/[0-9]+',
-	'brands/rankSetter',
-	'branchs/isActiveSetter/[0-9]+',
-	'branchs/rankSetter',
 	'emailsettings/isActiveSetter/[0-9]+',
+	
 	'blogs/isActiveSetter/[0-9]+',
 	'blogs/rankSetter+',
 	'blogs/isTrendSetter/[0-9]+',
-	'popups/isActiveSetter/[0-9]+',
-	'popups/rankSetter',
-	'services/isActiveSetter/[0-9]+',
-	'services/isTrendSetter/[0-9]+',
-	'services/rankSetter',
-	'packages/isActiveSetter/[0-9]+',
-	'packages/isTrendSetter/[0-9]+',
-	'packages/rankSetter',	
+	
+	'home/party_mode/[0-9]+',
+	
 	'user/isActiveSetter/[0-9]+',
 	'user/rankSetter',
-	'galleries/isActiveSetter/[0-9]+',
-	'galleries/isMainPageSetter/[0-9]+',
-	'galleries/isCoverSetter/[0-9]+/[0-9]+',
-	'galleries/rankSetter',
-	'galleries/refresh_file_list/[0-9]+/[a-z]+/[0-9a-zA-Z-_]+',
-	'packages/refresh_file_list/[0-9]',
-	'documents/isActiveSetter/[0-9]+',
-	'documents/rankSetter',
-
 
 );
 

@@ -93,7 +93,8 @@ class Blogs extends CI_Controller
 
 	
 	public function isActiveSetter($id){
-
+		
+		
 		if($id){
 
 			$isActive = ($this->input->post("data") === "true") ? 1 : 0;

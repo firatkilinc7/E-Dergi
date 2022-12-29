@@ -33,3 +33,6 @@
 <link href="<?php echo base_url('assets/front/') ?>css/responsive.css" rel="stylesheet" type="text/css" />
 
 <!-- inject css end -->
+
+
+<link rel="stylesheet" href="<?php echo base_url('assets/front/'); ?>css/switch.css" />
