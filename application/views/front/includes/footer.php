@@ -115,12 +115,16 @@
 	"#03a","#d9004c","#8878c3","#536895","#ffb300","#3cd070","#ff6fff","#120a8f","#4166f5","#635147","#ffddca","#5b92e5","#b78727","#ff6","#014421","#7b1113","#ae2029","#e1ad21","#004f98","#900","#fc0","#d3003f","#f3e5ab","#c5b358","#c80815","#43b3ae","#e34234","#d9603b","#a020f0","#8f00ff","#324ab2","#7f00ff","#8601af","#ee82ee","#40826d","#922724","#9f1d35",
 	"#da1d81","#ffa089","#9f00ff","#004242","#a4f4f9","#645452","#f5deb3","#fff","#f5f5f5","#a2add0","#ff43a4","#fc6c85","#722f37","#673147","#c9a0dc","#c19a6b","#738678","#0f4d92","#ff0","#9acd32","#efcc00","#ffd300","#ffae42","#ffef00","#fefe33","#0014a8","#2c1608",]
 	
+	var defaultPrimary = "<?php echo $settings->primary_color; ?>";
+	var defaultSecondary = "<?php echo $settings->secondary_color ; ?>";
+	
 	var currentColor = 0
-	var lis = document.getElementsByClassName('secondary-color')
-	const elements = document.querySelectorAll('.primary-color');
-	const elementsss = document.querySelectorAll('.primary-background-color');
-	const elementssss = document.querySelectorAll('.secondary-color');
-	const elementsssss = document.querySelectorAll('.secondary-background-color');
+	const primaryColor = document.querySelectorAll('.primary-color');
+	const primaryBgColor = document.querySelectorAll('.primary-background-color');
+	const secondaryColor = document.querySelectorAll('.secondary-color');
+	const secondaryBgColor = document.querySelectorAll('.secondary-background-color');
+	
+	
 	
 	function sleep(ms) {
 		return new Promise(resolve => setTimeout(resolve, ms));
@@ -133,28 +137,43 @@
 			
 			
 			
-			for (var i = 0; i < elements.length; i++) {
-				elements[i].style.setProperty("color", colors[currentColor % colors.length], "important");
+			for (var i = 0; i < primaryColor.length; i++) {
+				primaryColor[i].style.setProperty("color", colors[currentColor % colors.length], "important");
 			}
 			
-			for (var i = 0; i < elementsss.length; i++) {
-				elementsss[i].style.setProperty("background-color", colors[currentColor+200 % colors.length], "important");
+			for (var i = 0; i < primaryBgColor.length; i++) {
+				primaryBgColor[i].style.setProperty("background-color", colors[currentColor+200 % colors.length], "important");
 			}
 			
-			for (var i = 0; i < elementssss.length; i++) {
-				elementssss[i].style.setProperty("color", colors[currentColor+400 % colors.length], "important");
+			for (var i = 0; i < secondaryColor.length; i++) {
+				secondaryColor[i].style.setProperty("color", colors[currentColor+400 % colors.length], "important");
 			}
 			
-			for (var i = 0; i < elementsssss.length; i++) {
-				elementsssss[i].style.setProperty("background-color", colors[currentColor % colors.length], "important");
+			for (var i = 0; i < secondaryBgColor.length; i++) {
+				secondaryBgColor[i].style.setProperty("background-color", colors[currentColor % colors.length], "important");
 			}
 			
 			currentColor++;
 			await sleep(400);
-			
-			console.log(document.getElementById("party-mode").checked)
 		
 			if(document.getElementById("party-mode").checked == false){
+				
+				for (var i = 0; i < primaryColor.length; i++) {
+					primaryColor[i].style.setProperty("color", defaultPrimary, "important");
+				}
+			
+				for (var i = 0; i < primaryBgColor.length; i++) {
+					primaryBgColor[i].style.setProperty("background-color", defaultPrimary, "important");
+				}
+				
+				for (var i = 0; i < secondaryColor.length; i++) {
+					secondaryColor[i].style.setProperty("color", defaultSecondary, "important");
+				}
+				
+				for (var i = 0; i < secondaryBgColor.length; i++) {
+					secondaryBgColor[i].style.setProperty("background-color", defaultSecondary, "important");
+				}
+				
 				return;
 			}
 		
@@ -167,10 +186,16 @@
 	  if(document.getElementById("party-mode").checked){
 			changeColor();
 		}
-	  
-	  
-	  console.log(document.getElementById("party-mode").checked);
-	  
+		
+		const checkbox = document.getElementById('party-mode')
+
+		checkbox.addEventListener('change', (event) => {
+		  if (event.currentTarget.checked) {
+			changeColor();
+		  } else {
+			return;
+		  }
+		})
 	
 
 	//setInterval(changeColor, 1000)
