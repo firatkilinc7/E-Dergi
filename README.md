@@ -3,6 +3,15 @@
 Simple codeigniter based e-journal website.
 <br><br>
 
+# Screenshots
+## Main Page
+<img src="https://i.ibb.co/gTp3fh2/asdasdasd.png" alt="asdasdasd" border="0" />
+
+## Admin Panel
+<img src="https://i.ibb.co/N1ngpny/asdas.png" alt="asdas" border="0" />
+
+
+
 # Helpers 
 <br>
 
